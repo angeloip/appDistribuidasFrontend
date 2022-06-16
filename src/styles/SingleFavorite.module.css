@@ -1,0 +1,95 @@
+.singleImg {
+  width: 192px;
+  height: 150px;
+  padding: 10px 20px;
+  background: #fff;
+}
+
+.singleImg img {
+  width: 100%;
+  height: 100%;
+  object-fit: cover;
+  border-radius: 5px;
+}
+
+.singleFavoriteContent {
+  width: 100%;
+  display: flex;
+  align-items: center;
+  justify-content: space-around;
+  flex-wrap: wrap;
+  gap: 20px;
+  padding: 15px 0;
+}
+
+.singleName {
+  display: flex;
+  align-items: center;
+  flex-direction: column;
+  width: 150px;
+  text-align: center;
+}
+
+.category {
+  color: #b2b2b2;
+  font-weight: 500;
+}
+.name {
+  color: #737373;
+  font-size: 18px;
+}
+
+.listIngredients {
+  width: 150px;
+}
+
+.listIngredients ul {
+  padding: 0;
+  padding-left: 25px;
+}
+
+.favoriteBtn,
+.btnView {
+  display: flex;
+  align-items: center;
+  justify-content: center;
+  cursor: pointer;
+  outline: none;
+  background: none;
+  padding: 8px 10px;
+  border-radius: 5px;
+  margin: auto;
+  gap: 5px;
+  transition: 0.3s;
+  font-size: 14px;
+  font-weight: bold;
+}
+
+.favoriteBtn {
+  border: 1px solid #dd4b39;
+  color: #dd4b39;
+  width: 200px;
+}
+
+.favoriteBtn:hover {
+  background-color: #f8e6e5;
+}
+
+.btnView {
+  border: 1px solid #0085ff;
+  color: #0085ff;
+}
+
+.btnView:hover {
+  background-color: #e3f2ff;
+}
+
+.spinner {
+  color: #dd4b39;
+  animation: spinner 1s linear infinite;
+}
+@keyframes spinner {
+  to {
+    transform: rotate(360deg);
+  }
+}

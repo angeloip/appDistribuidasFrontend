@@ -1,0 +1,92 @@
+.productoCardContainer {
+  background: #fff;
+  border-radius: 5px;
+}
+
+.subproductoCardContainer {
+  padding: 15px;
+  position: relative;
+}
+
+.imgProductoCard {
+  max-width: 192px;
+  height: 150px;
+  margin: 0 auto;
+  background: #fff;
+  padding: 2% 7.5% 7.5% 7.5%;
+}
+.photoProduct {
+  width: 100%;
+  height: 100%;
+  object-fit: cover;
+  border-radius: 5px;
+}
+
+.nameBox {
+  height: 38px;
+  overflow: hidden;
+  line-height: normal;
+}
+.productName {
+  color: #737373;
+  font-size: 16px;
+}
+.productCategory {
+  color: #b2b2b2;
+  font-size: 14px;
+  font-weight: 500;
+  margin-top: 5px;
+}
+
+.favoriteBtn {
+  display: flex;
+  align-items: center;
+  justify-content: center;
+  cursor: pointer;
+  outline: none;
+  background: none;
+  border: 1px solid #dd4b39;
+  padding: 8px 10px;
+  border-radius: 5px;
+  margin: auto;
+  gap: 5px;
+  transition: 0.3s;
+  font-size: 14px;
+  width: 100%;
+}
+
+.favoriteBtn:hover {
+  background-color: #f8e6e5;
+}
+
+.favoriteBtn span {
+  color: #dd4b39;
+  font-weight: bold;
+}
+
+.iconHeart {
+  color: #dd4b39;
+  font-weight: bold;
+}
+
+.detailsBox {
+  display: flex;
+  align-items: center;
+  justify-content: center;
+  margin-top: 15px;
+}
+
+.detailsLink {
+  text-decoration: none;
+  color: #0085ff;
+}
+
+.spinner {
+  color: #dd4b39;
+  animation: spinner 1s linear infinite;
+}
+@keyframes spinner {
+  to {
+    transform: rotate(360deg);
+  }
+}

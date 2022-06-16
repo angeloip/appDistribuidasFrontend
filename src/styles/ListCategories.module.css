@@ -1,0 +1,41 @@
+.displayHeader {
+  display: flex;
+  align-items: center;
+  justify-content: space-between;
+  width: 100%;
+}
+
+.buttonGl {
+  font-weight: 600;
+  border: none;
+  cursor: pointer;
+  padding: 10px;
+  border-radius: 5px;
+  color: #fff;
+  transition: 0.3s ease all;
+}
+.displayHeader .buttonGl {
+  background: none;
+  padding: 0;
+  height: 40px;
+  width: 40px;
+  border-radius: 50%;
+}
+.displayHeader .buttonGl:hover {
+  background: rgb(231, 231, 231);
+}
+.boxCategory {
+  width: 100%;
+  padding: 12px 10px;
+  display: flex;
+  align-items: center;
+  justify-content: space-between;
+  border-bottom: 1px solid #e2e2e2;
+  cursor: pointer;
+  transition: 0.3s;
+  border-radius: 3px;
+}
+
+.boxCategory:hover {
+  background: #f2f2f2;
+}

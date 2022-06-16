@@ -1,0 +1,29 @@
+.detallesPhotoProduct {
+  width: 450px;
+
+  height: 300px;
+}
+
+@media (max-width: 500px) {
+  .detallesPhotoProduct {
+    height: 267px;
+  }
+}
+
+@media (max-width: 425px) {
+  .detallesPhotoProduct {
+    height: 217px;
+  }
+}
+
+@media (max-width: 375px) {
+  .detallesPhotoProduct {
+    height: 184px;
+  }
+}
+
+@media (max-width: 320px) {
+  .detallesPhotoProduct {
+    height: 147px;
+  }
+}

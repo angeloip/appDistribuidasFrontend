@@ -1,0 +1,226 @@
+.displayHeader {
+  display: flex;
+  align-items: center;
+  justify-content: space-between;
+}
+.modalTitle {
+  font-size: 18px;
+}
+.buttonGl {
+  background: #0085ff;
+  font-weight: 600;
+  border: none;
+  cursor: pointer;
+  padding: 10px;
+  border-radius: 5px;
+  color: #fff;
+  transition: 0.3s ease all;
+}
+.displayHeader .buttonGl {
+  background: none;
+  padding: 0;
+  height: 40px;
+  width: 40px;
+  border-radius: 50%;
+}
+.displayHeader .buttonGl:hover {
+  background: rgb(231, 231, 231);
+}
+
+.containerForm {
+  display: flex;
+  align-items: center;
+  justify-content: center;
+  flex-direction: column;
+  margin: 20px 0;
+}
+.formulario {
+  width: 100%;
+  background: #fff;
+  border-radius: 5px; /* padding: 20px; box-shadow: rgba(0, 0, 0, 0.16) 0px 1px 4px; */
+}
+
+.formulario .btnSubmitForm,
+.formulario .btnForm {
+  display: block;
+  font-weight: 500;
+  border: none;
+  cursor: pointer;
+  border-radius: 5px;
+  color: #fff;
+  transition: 0.3s ease all;
+}
+
+.btnSubmitForm,
+.disabledButton {
+  width: 100%;
+  padding: 10px;
+  background: #0085ff;
+}
+
+.formulario .btnSubmitForm:hover {
+  background: #006cd1;
+}
+.formulario .form__input,
+.formulario textarea {
+  outline: none;
+  width: 100%;
+  height: 100%;
+  border-radius: 8px;
+  border: 2px solid #e2e2e2;
+  /* font-size: 18px; */
+  padding: 1.25rem;
+  color: #1f1f1f;
+  transition: 0.2s;
+}
+
+.divided_box {
+  display: flex;
+  gap: 15px;
+}
+
+.cont_input {
+  position: relative;
+  margin-bottom: 30px;
+  height: 2rem;
+}
+
+.form__input:hover {
+  border-color: #4aa7fd;
+}
+.form__input:focus {
+  border-color: #4aa7fd;
+}
+
+.form__label {
+  position: absolute;
+  left: 1rem;
+  top: 0.71rem;
+  user-select: none;
+  padding: 0 0.5rem;
+  pointer-events: none;
+  color: gray;
+  transition: top 200ms ease-in, left 200ms ease-in, font-size 200ms ease-in;
+  background-color: #fff;
+}
+
+.form__input:focus ~ .form__label,
+.form__input:not(:placeholder-shown).form__input:not(:focus) ~ .form__label {
+  top: -0.6rem;
+  font-size: 14px;
+  left: 5px;
+  background: #fff;
+  padding: 0 0.5rem;
+}
+
+.formulario .error {
+  margin-left: 10px;
+  margin-top: -10px;
+  margin-bottom: 15px;
+  color: #e92b2d;
+  font-weight: 500;
+  font-size: 12px;
+}
+.eye {
+  position: absolute;
+  top: 70%;
+  right: 10px;
+  transform: translateY(-50%);
+  font-size: 21px;
+  color: #000;
+  cursor: pointer; /*  user-select: none; visibility: hidden; */
+}
+.form__input.inputPass {
+  padding-right: 2.3rem;
+}
+.errorMessage,
+.succefullMessage {
+  text-align: center;
+  color: #d32f2f;
+  font-size: 14px;
+}
+.successfulMessage {
+  color: #1db91d;
+}
+.iconLoading {
+  animation: spinner 1s linear infinite;
+}
+@keyframes spinner {
+  to {
+    transform: rotate(360deg);
+  }
+}
+.buttonLoading {
+  margin-right: 5px;
+}
+.formulario .buttonForgotPass {
+  width: auto;
+  padding: 0;
+  margin: 0;
+  margin-left: 5px;
+  margin-top: 10px;
+  background: none;
+  color: #0085ff;
+}
+.orP {
+  text-align: center;
+  width: 100%;
+  position: relative;
+  margin-top: 10px;
+}
+.orP:before {
+  content: "";
+  display: block;
+  width: 45%;
+  height: 2px;
+  background: #cecece;
+  position: absolute;
+  left: 0;
+  top: 50%;
+}
+.orP:after {
+  content: "";
+  display: block;
+  width: 45%;
+  height: 2px;
+  background: #cecece;
+  position: absolute;
+  right: 0;
+  top: 50%;
+}
+.orSpan {
+  background: #fff;
+  color: #646464;
+  padding-left: 5px;
+  padding-right: 5px;
+}
+.iconGoogle {
+  margin-right: 10px;
+}
+.formulario .buttonGoogle {
+  background: #fff;
+  padding: 10px;
+  color: #dd4b39;
+  border: 2px solid #dd4b39;
+  display: flex;
+  align-items: center;
+  justify-content: center;
+  width: 100%;
+}
+.link_register {
+  display: flex;
+  align-items: center;
+  justify-content: center;
+}
+
+.link_register .buttonIsRegister {
+  margin-left: 5px;
+  background: none;
+  color: #0085ff;
+}
+
+@media (max-width: 430px) {
+  .link_register {
+    flex-direction: column;
+  }
+}

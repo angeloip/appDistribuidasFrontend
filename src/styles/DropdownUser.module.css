@@ -1,0 +1,102 @@
+.photoUser {
+  width: 24px;
+  height: 24px;
+  border-radius: 50%;
+}
+.dropData {
+  display: flex;
+  align-items: center;
+  justify-content: center;
+  padding: 6px 15px;
+  cursor: default;
+}
+.photoUser.photoDrop {
+  width: 35px;
+  height: 35px;
+  margin-right: 10px;
+}
+.paragraphName {
+  width: 150px;
+  white-space: nowrap;
+  overflow: hidden;
+  text-overflow: ellipsis;
+  margin: 0;
+  font-size: 14px;
+  color: rgb(109, 109, 109);
+}
+.skeletonDropDown {
+  padding: 10px 15px;
+}
+.elementDrop {
+  display: flex;
+  justify-content: center;
+  align-items: center;
+  gap: 15px;
+}
+.iconDropDown {
+  display: flex;
+  justify-content: center;
+  align-items: center;
+  color: rgba(0, 0, 0, 0.54);
+}
+
+.buttonNav {
+  position: relative;
+  background: none;
+  font-weight: 600;
+  border: none;
+  cursor: pointer;
+  padding: 10px 15px;
+  border-radius: 5px;
+  transition: 0.3s ease all;
+}
+
+.separator {
+  border-bottom: solid 1px rgb(194, 194, 194);
+  width: 100%;
+  margin: 20px 0;
+  cursor: default;
+}
+
+/*********************************/
+.select_menu {
+  position: relative;
+}
+.select_menu .dropdownContent {
+  position: absolute;
+  right: 0;
+  padding: 10px 0;
+  margin-top: 8px;
+  border-radius: 5px;
+  background: #fff;
+  border: 1px solid rgba(0, 0, 0, 0.1);
+  box-shadow: 0 0 10px rgba(0, 0, 0, 0.1);
+  display: none;
+}
+.select_menu.active .dropdownContent {
+  display: block;
+}
+.options {
+  margin: 0;
+  display: flex;
+  flex-direction: column;
+}
+.options li {
+  list-style: none;
+  width: 100%;
+}
+.options .option {
+  display: flex;
+  cursor: pointer;
+  padding: 10px 16px;
+  border-radius: 8px;
+  align-items: center;
+  background: #fff;
+  transition: 0.3s all ease;
+}
+.option span {
+  color: #000;
+}
+.options .option:hover {
+  background: #f2f2f2;
+}

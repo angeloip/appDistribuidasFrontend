@@ -1,0 +1,49 @@
+.favoritesContainer {
+  padding-top: var(--padding-top-container);
+  padding-left: var(--padding-left-container);
+  padding-right: var(--padding-right-container);
+  margin: auto;
+  max-width: var(--max-width-container);
+}
+
+.titleContainer {
+  background: #fff;
+  padding: 15px 20px;
+  gap: 30px;
+  flex-wrap: wrap;
+  border-radius: 10px;
+  margin-bottom: 15px;
+}
+
+.titleContainer h2 {
+  font-size: 20px;
+  margin: 0;
+}
+.favoriteBox {
+  width: 100%;
+}
+
+.favoritesSubContainer {
+  width: 100%;
+  background: #fff;
+  padding: 40px 20px;
+  border-radius: 10px;
+}
+
+.emptyCarContainer {
+  width: 100%;
+  background: #fff;
+  border-radius: 5px;
+  padding: 10px 22px;
+}
+.emptyCar {
+  display: flex;
+  align-items: center;
+  justify-content: center;
+  flex-direction: column;
+  gap: 10px;
+}
+
+.iconHeart {
+  color: #dd4b39;
+}

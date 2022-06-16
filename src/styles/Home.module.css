@@ -1,0 +1,17 @@
+.homeContainer {
+  padding-top: var(--padding-top-container);
+  padding-left: var(--padding-left-container);
+  padding-right: var(--padding-right-container);
+  margin: auto;
+  max-width: var(--max-width-container);
+}
+
+.title {
+  text-align: center;
+}
+
+.listaProducts {
+  display: grid;
+  gap: 1.3rem;
+  grid-template-columns: repeat(auto-fill, minmax(220px, 1fr));
+}
