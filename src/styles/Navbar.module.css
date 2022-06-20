@@ -47,6 +47,16 @@
   background-color: #fff;
 }
 
+.linkNav {
+  color: #fff;
+  background-color: #f24726;
+  border-radius: 5px;
+  padding: 8px 10px;
+}
+.linkNav:hover {
+  color: #fff;
+}
+
 .loginBtn {
   outline: none;
   border: none;

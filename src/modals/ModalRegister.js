@@ -50,6 +50,7 @@ export const ModalRegister = ({ showRegister, setShowRegister, setShow }) => {
                 console.log("SE HA REGISTRADO CORRECTAMENTE");
                 console.log("SE HA LOGUEADO CORRECTAMENTE");
                 saveToken(res.data.token);
+                setHidden(true);
               })
               .catch((err) => {
                 alert(err.response);
@@ -95,6 +96,7 @@ export const ModalRegister = ({ showRegister, setShowRegister, setShow }) => {
                 console.log("SE HA LOGUEADO CORRECTAMENTE CON GOOGLE");
                 saveToken(res.data.token);
                 setShowRegister(false);
+                setHidden(true);
               })
               .catch((err) => {
                 alert(err.response);

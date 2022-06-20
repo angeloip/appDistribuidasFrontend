@@ -18,6 +18,7 @@ export const ProductDetails = () => {
   const [beUser, setBeUser] = useAuth().beUser;
   const [isCheck, setIsCheck] = useState(false);
   const params = useParams();
+  const [dataDishes, setDataDishes] = useData().dataDishes;
 
   const agregarFavorito = async () => {
     setIsBtnLoading(true);
@@ -40,20 +41,22 @@ export const ProductDetails = () => {
     setIsBtnLoading(false);
   };
 
-  const getDish = async () => {
-    setIsLoading(true);
+  const getDish = () => {
+    /* setIsLoading(true);
+    
     await getDishRequest(params.id)
       .then((res) => {
         setProductoDetalles(res.data);
       })
       .catch((err) => alert(err.response));
 
-    setIsLoading(false);
+    setIsLoading(false); */
+    setProductoDetalles(dataDishes.find((dish) => dish._id === params.id));
   };
+
   const checkFavorite = () => {
     if (favorites.length > 0) {
       for (let i = 0; i < favorites.length; i++) {
-        console.log(favorites[i]?.dish._id, params.id);
         if (favorites[i]?.dish._id === params.id) {
           setIsCheck(true);
 

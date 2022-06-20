@@ -4,7 +4,7 @@ import {
   deleteFavoriteRequest,
   getFavoritesRequest
 } from "../api/favoriteRequest";
-import { getUserRequest } from "../api/userRequest";
+import { getDishesRequest } from "../api/request";
 import { useAuth } from "./authContext";
 
 export const dataContext = createContext();
@@ -19,18 +19,9 @@ export const useData = () => {
 export const DataProvider = ({ children }) => {
   const [favorites, setFavorites] = useState([]);
   const [beUser, setBeUser] = useAuth().beUser;
-
-  /* const getFavoritesUser = async () => {
-    if (beUser) {
-      await getUserRequest(beUser.id)
-        .then((res) => {
-          setFavorites(res.data.favorites);
-        })
-        .catch((err) => alert(err.response));
-    } else {
-      setFavorites([]);
-    }
-  }; */
+  const [dataDishes, setDataDishes] = useState([]);
+  const [isLoadingDishes, setIsLoadingDishes] = useState(false);
+  const [listIngredients, setListIngredients] = useState([]);
 
   const getFavoritesUser = async () => {
     if (beUser) {
@@ -44,6 +35,41 @@ export const DataProvider = ({ children }) => {
       setFavorites([]);
     }
   };
+
+  useEffect(() => {
+    getFavoritesUser();
+  }, [beUser]);
+
+  const getData = async () => {
+    setIsLoadingDishes(true);
+    await getDishesRequest()
+      .then((res) => {
+        setDataDishes(res.data);
+      })
+      .catch((err) => alert(err.response));
+
+    setIsLoadingDishes(false);
+  };
+
+  useEffect(() => {
+    getData();
+  }, []);
+
+  useEffect(() => {
+    if (dataDishes.length > 0) {
+      let temp = [];
+      let uniqueArr = [];
+      for (let i = 0; i < dataDishes.length; i++) {
+        temp = temp.concat(dataDishes[i].ingredients);
+      }
+      for (let i = 0; i < temp.length; i++) {
+        if (!uniqueArr.includes(temp[i])) {
+          uniqueArr.push(temp[i]);
+        }
+      }
+      setListIngredients(uniqueArr.sort());
+    }
+  }, [dataDishes]);
 
   const addToFavorites = async (producto) => {
     await createFavoriteRequest(producto)
@@ -63,12 +89,11 @@ export const DataProvider = ({ children }) => {
       .catch((err) => alert(err.response));
   };
 
-  useEffect(() => {
-    getFavoritesUser();
-  }, [beUser]);
-
   const value = {
     favorites: [favorites, setFavorites],
+    dataDishes: [dataDishes, setDataDishes],
+    listIngredients: [listIngredients, setListIngredients],
+    isLoadingDishes: [isLoadingDishes, setIsLoadingDishes],
     addToFavorites: addToFavorites,
     deleteToFavorites: deleteToFavorites
   };

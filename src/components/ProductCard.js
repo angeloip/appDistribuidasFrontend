@@ -37,10 +37,10 @@ export const ProductCard = ({ producto }) => {
     setIsLoading(false);
   };
 
-  const checkFavorite = async () => {
+  const checkFavorite = () => {
     if (favorites.length > 0) {
       for (let i = 0; i < favorites.length; i++) {
-        if (favorites[i]?.dish._id === producto._id) {
+        if (favorites[i].dish._id === producto._id) {
           setIsCheck(true);
           i = favorites.length;
         } else {

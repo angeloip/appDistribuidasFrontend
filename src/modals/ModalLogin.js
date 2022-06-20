@@ -42,6 +42,7 @@ export const ModalLogin = ({ show, setShow }) => {
             console.log("HA INICIADO SESIÓN");
             saveToken(res.data.token);
             setShow(false);
+            setHidden(true);
           })
           .catch((err) => {
             const error = err.response;
@@ -86,6 +87,7 @@ export const ModalLogin = ({ show, setShow }) => {
                 console.log("SE HA LOGUEADO CORRECTAMENTE CON GOOGLE");
                 saveToken(res.data.token);
                 setShow(false);
+                setHidden(true);
               })
               .catch((err) => {
                 const error = err.response;
@@ -106,7 +108,7 @@ export const ModalLogin = ({ show, setShow }) => {
   useEffect(() => {
     return () => {
       setError("");
-      setHidden("");
+      setHidden(true);
       setShowReset(false);
       setShowRegister(false);
       setIsLoading(false);

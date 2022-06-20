@@ -11,9 +11,11 @@
   padding: 40px 20px;
   display: flex;
   align-items: center;
+  width: 100%;
   justify-content: center;
   gap: 30px;
   flex-wrap: wrap;
+  border-radius: 10px;
 }
 
 .detallesPhotoProduct {

@@ -5,6 +5,7 @@ import { Home } from "./pages/Home";
 import { ProductDetails } from "./pages/ProductDetails";
 import { Favorites } from "./pages/Favorites";
 import { Categoria } from "./pages/Categoria";
+import { SearchByIngredients } from "./pages/SearchByIngredients";
 
 function App() {
   const [loadingUser] = useAuth().loadingUser;
@@ -19,6 +20,10 @@ function App() {
             <Route path="/" element={<Home />} />
             <Route path="/plato/detalles/:id" element={<ProductDetails />} />
             <Route path="/mis-favoritos" element={<Favorites />} />
+            <Route
+              path="/buscar-por-ingredientes"
+              element={<SearchByIngredients />}
+            />
             <Route path="/categoria/:categoria" element={<Categoria />} />
           </Routes>
         </>

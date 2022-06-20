@@ -1,0 +1,38 @@
+.searchByIngredientsContainer {
+  padding-top: var(--padding-top-container);
+  padding-left: var(--padding-left-container);
+  padding-right: var(--padding-right-container);
+  margin: auto;
+  max-width: var(--max-width-container);
+}
+
+.searchByIngredientsSubContainer {
+  background: #fff;
+  padding: 40px 20px;
+  display: flex;
+  justify-content: center;
+  align-items: center;
+  gap: 30px;
+  flex-wrap: wrap;
+  border-radius: 10px;
+}
+
+.selectBox {
+  width: 700px;
+}
+
+.btnBox button {
+  outline: none;
+  border: none;
+  background-color: #0085ff;
+  padding: 8px 10px;
+  color: #fff;
+  border-radius: 5px;
+}
+
+.dishResultsContainer {
+  background: #fff;
+  padding: 40px 20px;
+  border-radius: 10px;
+  margin-top: 15px;
+}

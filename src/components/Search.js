@@ -19,7 +19,7 @@ export const Search = () => {
             className={`${styles.form__input} ${styles.inputPass}`}
           />
           <label className={styles.form__label} htmlFor="producto">
-            Buscar producto
+            Buscar plato
           </label>
         </div>
         <button

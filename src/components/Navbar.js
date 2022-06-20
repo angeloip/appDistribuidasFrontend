@@ -43,6 +43,15 @@ export const Navbar = () => {
             </li>
 
             <li>
+              <Link
+                className={`${styles.buttonNav} ${styles.linkNav}`}
+                to="/buscar-por-ingredientes"
+              >
+                Buscar por ingredientes
+              </Link>
+            </li>
+
+            <li>
               {beUser ? (
                 <DropdownUser />
               ) : (

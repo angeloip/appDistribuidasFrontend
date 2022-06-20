@@ -1,7 +1,7 @@
 import axios from "axios";
 
-/* const url = "http://localhost:5000/api/users/"; */
-const url = "https://app-distribuida.herokuapp.com/api/users/";
+const url = "http://localhost:5000/api/users/";
+/* const url = "https://app-distribuida.herokuapp.com/api/users/"; */
 
 export const getUsersRequest = () => axios.get(url);
 
