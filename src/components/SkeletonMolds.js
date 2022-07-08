@@ -39,6 +39,54 @@ export const DetailsProductSkeleton = () => {
           className={stylesDetails.detallesInfoprodct}
           style={{ width: 382 }}
         >
+          <div style={{ display: "flex", gap: "15px" }}>
+            <SkeletonElement type="rectangular" height={30} width={120} />
+            <SkeletonElement type="rectangular" height={30} width={120} />
+            <SkeletonElement
+              type="rectangular"
+              height={30}
+              width={120}
+              mb={3}
+            />
+          </div>
+          <div>
+            <SkeletonElement type="text" width={"30%"} />
+            <SkeletonElement type="text" height={20} width={"50%"} mb={2} />
+          </div>
+
+          <div>
+            <SkeletonElement type="text" width={"30%"} />
+            <SkeletonElement type="text" height={20} width={"60%"} />
+            <SkeletonElement type="text" height={20} width={"60%"} />
+            <SkeletonElement type="text" height={20} width={"60%"} />
+            <SkeletonElement type="text" height={20} width={"60%"} />
+            <SkeletonElement type="text" height={20} width={"60%"} />
+            <SkeletonElement type="text" height={20} width={"60%"} />
+            <SkeletonElement type="text" height={20} width={"60%"} mb={2} />
+          </div>
+
+          <div style={{ display: "flex", justifyContent: "center" }}>
+            <SkeletonElement type="rectangular" height={40} width={"80%"} />
+          </div>
+        </div>
+      </div>
+    </div>
+  );
+};
+
+/* export const DetailsProductSkeleton = () => {
+  return (
+    <div className={stylesDetails.DetallesProductoContainer}>
+      <div className={stylesDetails.detallesSubContainer}>
+        <div
+          className={`${stylesDetails.detallesPhotoProduct} ${styles.detallesPhotoProduct}`}
+        >
+          <SkeletonElement type="rectangular" height={"100%"} />
+        </div>
+        <div
+          className={stylesDetails.detallesInfoprodct}
+          style={{ width: 382 }}
+        >
           <div>
             <SkeletonElement type="text" width={"30%"} />
             <SkeletonElement type="text" height={20} width={"50%"} mb={2} />
@@ -70,4 +118,4 @@ export const DetailsProductSkeleton = () => {
       </div>
     </div>
   );
-};
+}; */

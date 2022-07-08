@@ -6,13 +6,14 @@ import { ProductDetails } from "./pages/ProductDetails";
 import { Favorites } from "./pages/Favorites";
 import { Categoria } from "./pages/Categoria";
 import { SearchByIngredients } from "./pages/SearchByIngredients";
+import { Loading } from "./components/Loading";
 
 function App() {
   const [loadingUser] = useAuth().loadingUser;
   return (
     <>
       {loadingUser ? (
-        <h1>CARGANDO...</h1>
+        <Loading />
       ) : (
         <>
           <Navbar />

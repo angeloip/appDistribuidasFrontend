@@ -5,7 +5,7 @@ import { GiNestedHearts } from "react-icons/gi";
 import { Link } from "react-router-dom";
 
 export const Favorites = () => {
-  const [favorites, setFavorites] = useData().favorites;
+  const [favorites] = useData().favorites;
   return (
     <div className={styles.favoritesContainer}>
       <div className={styles.titleContainer}>
@@ -18,9 +18,11 @@ export const Favorites = () => {
               <div className={styles.emptyCarContainer}>
                 <div className={styles.emptyCar}>
                   <GiNestedHearts size={50} className={styles.iconHeart} />
-                  <h4 className={styles.clean__title}>Tu carrito está vacío</h4>
+                  <h4 className={styles.clean__title}>
+                    Tu lista de favoritos está vacío
+                  </h4>
                   <p className={styles.clean__paragraph}>
-                    Elija productos y vea los detalles de su compra.
+                    Aún no ha elegido un plato favorito
                   </p>
                   <Link to="/" className={styles.btnToShop}>
                     Ir a buscar platos

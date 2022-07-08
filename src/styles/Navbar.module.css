@@ -18,9 +18,11 @@
   max-width: var(--max-width-container);
 }
 
-.nameLogo {
-  color: #f24726;
-  font-size: 30px;
+.logo {
+  height: 35px;
+}
+.logo img {
+  height: 100%;
 }
 
 .opcionesNavbar {

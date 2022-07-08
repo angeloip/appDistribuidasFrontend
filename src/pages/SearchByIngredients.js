@@ -3,13 +3,15 @@ import Select from "react-select";
 import Swal from "sweetalert2";
 import { MatchingDish } from "../components/MatchingDish";
 import { useData } from "../context/dataContext";
+import { BiDish } from "react-icons/bi";
+import { MdSearchOff } from "react-icons/md";
 import styles from "../styles/SearchByIngredients.module.css";
 
 export const SearchByIngredients = () => {
-  const [listIngredients, setListIngredients] = useData().listIngredients;
+  const [listIngredients] = useData().listIngredients;
   const [selectedOptions, setSelectedOptions] = useState([]);
-  const [dataDishes, setDataDishes] = useData().dataDishes;
-  const [matchingDishes, setMatchingDishes] = useState([]);
+  const [dataDishes] = useData().dataDishes;
+  const [matchingDishes, setMatchingDishes] = useState(null);
 
   const Toast = Swal.mixin({
     toast: true,
@@ -35,7 +37,7 @@ export const SearchByIngredients = () => {
       dataDishes.forEach((dish) => {
         cont = 0;
         selectedOptions.forEach((option) => {
-          if (dish.ingredients.includes(option)) {
+          if (dish.tags.includes(option)) {
             cont++;
           }
         });
@@ -44,7 +46,6 @@ export const SearchByIngredients = () => {
         }
       });
       setMatchingDishes(arr);
-      console.log(arr);
     }
   };
 
@@ -56,9 +57,9 @@ export const SearchByIngredients = () => {
             className={styles.selectInput}
             placeholder="Elegir ingredientes..."
             isMulti
-            options={listIngredients.map((ingredient) => ({
-              label: ingredient,
-              value: ingredient
+            options={listIngredients.map((tag) => ({
+              label: tag,
+              value: tag
             }))}
             onChange={(items) =>
               setSelectedOptions(items.map((item) => item.value))
@@ -71,9 +72,32 @@ export const SearchByIngredients = () => {
       </div>
       <div className={styles.dishResultsContainer}>
         <div className={styles.boxContainer}>
-          {matchingDishes.map((dish) => (
-            <MatchingDish key={dish._id} dish={dish} />
-          ))}
+          {matchingDishes ? (
+            matchingDishes.length !== 0 ? (
+              matchingDishes.map((dish) => (
+                <MatchingDish key={dish._id} dish={dish} />
+              ))
+            ) : (
+              <>
+                <div className={styles.emptyMatching}>
+                  <MdSearchOff size={100} className={styles.iconDish} />
+                  <p className={styles.emptyParagraph}>
+                    No se encontró coincidencias con los ingredientes elegidos
+                  </p>
+                </div>
+              </>
+            )
+          ) : (
+            <>
+              <div className={styles.emptyMatching}>
+                <BiDish size={100} className={styles.iconDish} />
+                <p className={styles.emptyParagraph}>
+                  Elija una serie de ingredientes para mostrar los platos
+                  coincidentes
+                </p>
+              </div>
+            </>
+          )}
         </div>
       </div>
     </div>

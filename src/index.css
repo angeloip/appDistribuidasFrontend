@@ -31,3 +31,21 @@ code {
 a {
   text-decoration: none;
 }
+.MuiTabs-flexContainer {
+  justify-content: space-between !important;
+}
+
+/* .MuiButtonBase-root.MuiTab-root.MuiTab-textColorPrimary.Mui-selected {
+  flex-grow: 1 !important;
+}
+ */
+.MuiBox-root.css-w8dmq8 {
+  width: 475px !important;
+  overflow: hidden !important;
+}
+
+@media (max-width: 600px) {
+  .MuiBox-root.css-w8dmq8 {
+    width: auto !important;
+  }
+}

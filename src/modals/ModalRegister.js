@@ -8,11 +8,7 @@ import { Modal } from "react-bootstrap";
 import { useAuth } from "../context/authContext";
 import { firebaseErrors } from "../utils/firebaseErros";
 import styles from "../styles/ModalLogin.module.css";
-import { createUserRequest } from "../api/userRequest";
-import {
-  createLoginRequest,
-  createLoginWithGoogleRequest
-} from "../api/loginRequest";
+import { useApi } from "../context/apiContext";
 
 export const ModalRegister = ({ showRegister, setShowRegister, setShow }) => {
   const [isLoading, setIsLoading] = useState(false);
@@ -23,6 +19,10 @@ export const ModalRegister = ({ showRegister, setShowRegister, setShow }) => {
   const [beUser, setBeUser] = useAuth().beUser;
   const loginWithGoogle = useAuth().loginWithGoogle;
   const saveToken = useAuth().saveToken;
+
+  const createUserRequest = useApi().createUserRequest;
+  const createLoginRequest = useApi().createLoginRequest;
+  const createLoginWithGoogleRequest = useApi().createLoginWithGoogleRequest;
 
   const handleRegister = async (email, password, name) => {
     setIsLoading(true);

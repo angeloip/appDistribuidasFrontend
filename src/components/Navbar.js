@@ -1,5 +1,5 @@
 import React, { useState } from "react";
-
+import logo from "../img/logo.png";
 import { Link } from "react-router-dom";
 import { useAuth } from "../context/authContext";
 import { ModalLogin } from "../modals/ModalLogin";
@@ -18,7 +18,7 @@ export const Navbar = () => {
       <div className={styles.subNavbarContainer}>
         <div className={styles.logo}>
           <Link to="/">
-            <span className={styles.nameLogo}>IziFood</span>
+            <img src={logo} alt="" />
           </Link>
         </div>
 

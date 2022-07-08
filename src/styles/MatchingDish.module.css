@@ -89,3 +89,9 @@
 .btnView:hover {
   background-color: #e3f2ff;
 }
+
+.emptyMatching {
+  display: flex;
+  align-items: center;
+  justify-content: center;
+}

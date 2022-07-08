@@ -15,7 +15,6 @@ import { auth } from "../utils/api";
 export const authContext = createContext();
 
 export const useAuth = () => {
-  // para no estar importando el useContext y authContext a cada momento en cada componente
   const context = useContext(authContext);
   if (!context) throw new Error("There is not auth provider");
   return context;

@@ -1,0 +1,52 @@
+.tabContainer {
+  padding-top: var(--padding-top-container);
+  padding-left: var(--padding-left-container);
+  padding-right: var(--padding-right-container);
+  margin: auto;
+  max-width: var(--max-width-container);
+}
+
+.tabContainer .ul {
+  width: 100%;
+  background-color: lightblue;
+  display: flex;
+  flex-flow: row nowrap;
+  justify-content: space-between;
+  align-items: center;
+  padding: 0;
+  list-style: none;
+  overflow-y: auto;
+  cursor: move;
+}
+
+.tabContainer .ul::-webkit-scrollbar {
+  height: 0;
+}
+
+.tabContainer .li {
+  padding: 1em;
+  margin: 0 1em 0;
+  transition: all 0.5s ease;
+}
+.tabContainer .li.active {
+  background: lightskyblue;
+}
+.tabContainer .contentContainer {
+  min-height: 10vh;
+  background-color: lightcoral;
+  position: relative;
+}
+
+.tabContainer .bloque {
+  background-color: lightseagreen;
+  margin: 1em;
+  padding: 1em;
+  position: absolute;
+  top: 0;
+  opacity: 0;
+  transition: all 0.5s ease;
+}
+
+.tabContainer .bloque.active {
+  opacity: 1;
+}

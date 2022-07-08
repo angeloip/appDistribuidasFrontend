@@ -7,7 +7,7 @@ import { useData } from "../context/dataContext";
 import { useState } from "react";
 
 export const SingleFavorite = ({ favorite }) => {
-  const [favorites, setFavorites] = useData().favorites;
+  const [favorites] = useData().favorites;
   const [isLoading, setIsLoading] = useState(false);
   const deleteToFavorites = useData().deleteToFavorites;
 

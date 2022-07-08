@@ -1,0 +1,34 @@
+.ingredientsBox {
+  display: flex;
+  gap: 15px;
+  flex-direction: column;
+}
+
+.categoria {
+  color: #737373;
+}
+
+.short_description ul li {
+  color: #737373;
+  font-weight: 500;
+  margin-left: 20px;
+}
+
+.short_description ul {
+  padding: 0;
+}
+
+.paraphBold {
+  font-weight: 500;
+}
+
+.subParaph {
+  max-width: 450px;
+  font-size: 14px;
+  color: #737373;
+}
+@media (max-width: 580px) {
+  .subParaph {
+    width: auto;
+  }
+}

@@ -9,11 +9,7 @@ import { firebaseErrors } from "../utils/firebaseErros";
 import styles from "../styles/ModalLogin.module.css";
 import { ModalRegister } from "./ModalRegister";
 import { useAuth } from "../context/authContext";
-import {
-  createLoginRequest,
-  createLoginWithGoogleRequest
-} from "../api/loginRequest";
-import { createUserRequest } from "../api/userRequest";
+import { useApi } from "../context/apiContext";
 
 export const ModalLogin = ({ show, setShow }) => {
   const [error, setError] = useState("");
@@ -26,6 +22,10 @@ export const ModalLogin = ({ show, setShow }) => {
   const loginWithGoogle = useAuth().loginWithGoogle;
   const saveToken = useAuth().saveToken;
   const [isLoading, setIsLoading] = useState(false);
+
+  const createUserRequest = useApi().createUserRequest;
+  const createLoginRequest = useApi().createLoginRequest;
+  const createLoginWithGoogleRequest = useApi().createLoginWithGoogleRequest;
 
   const handleLogin = async (email, password) => {
     setIsLoading(true);

@@ -5,8 +5,8 @@ import { useData } from "../context/dataContext";
 import styles from "../styles/Home.module.css";
 
 export const Home = () => {
-  const [dataDishes, setDataDishes] = useData().dataDishes;
-  const [isLoadingDishes, setIsLoadingDishes] = useData().isLoadingDishes;
+  const [dataDishes] = useData().dataDishes;
+  const [isLoadingDishes] = useData().isLoadingDishes;
 
   return (
     <div className={styles.homeContainer}>

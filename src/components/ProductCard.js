@@ -5,26 +5,46 @@ import { useEffect, useState } from "react";
 import { ImSpinner9 } from "react-icons/im";
 import { useAuth } from "../context/authContext";
 import { useData } from "../context/dataContext";
+import Swal from "sweetalert2";
 
 export const ProductCard = ({ producto }) => {
   const [isLoading, setIsLoading] = useState(false);
-  const [beUser, setBeUser] = useAuth().beUser;
-  const [favorites, setFavorites] = useData().favorites;
+  const [beUser] = useAuth().beUser;
+  const [favorites] = useData().favorites;
   const addToFavorites = useData().addToFavorites;
   const deleteToFavorites = useData().deleteToFavorites;
 
   const [isCheck, setIsCheck] = useState(false);
 
+  const Toast = Swal.mixin({
+    toast: true,
+    position: "top-end",
+    showConfirmButton: false,
+    timer: 3000,
+    timerProgressBar: true,
+    didOpen: (toast) => {
+      toast.addEventListener("mouseenter", Swal.stopTimer);
+      toast.addEventListener("mouseleave", Swal.resumeTimer);
+    }
+  });
+
   const agregarFavorito = async () => {
-    setIsLoading(true);
+    if (beUser) {
+      setIsLoading(true);
 
-    const tempProduct = {
-      dishId: producto._id,
-      userId: beUser.id
-    };
+      const tempProduct = {
+        dishId: producto._id,
+        userId: beUser.id
+      };
 
-    await addToFavorites(tempProduct);
-    setIsLoading(false);
+      await addToFavorites(tempProduct);
+      setIsLoading(false);
+    } else {
+      Toast.fire({
+        icon: "info",
+        title: "Inicia Sesión para agregar favoritos"
+      });
+    }
   };
 
   const eliminarFavorito = async () => {

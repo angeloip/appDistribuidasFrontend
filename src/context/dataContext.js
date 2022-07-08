@@ -1,16 +1,10 @@
 import { createContext, useContext, useEffect, useState } from "react";
-import {
-  createFavoriteRequest,
-  deleteFavoriteRequest,
-  getFavoritesRequest
-} from "../api/favoriteRequest";
-import { getDishesRequest } from "../api/request";
+import { useApi } from "./apiContext";
 import { useAuth } from "./authContext";
 
 export const dataContext = createContext();
 
 export const useData = () => {
-  // para no estar importando el useContext y dataContext a cada momento en cada componente
   const context = useContext(dataContext);
   if (!context) throw new Error("There is not data provider");
   return context;
@@ -18,10 +12,14 @@ export const useData = () => {
 
 export const DataProvider = ({ children }) => {
   const [favorites, setFavorites] = useState([]);
-  const [beUser, setBeUser] = useAuth().beUser;
+  const [beUser] = useAuth().beUser;
   const [dataDishes, setDataDishes] = useState([]);
   const [isLoadingDishes, setIsLoadingDishes] = useState(false);
   const [listIngredients, setListIngredients] = useState([]);
+  const getFavoritesRequest = useApi().getFavoritesRequest;
+  const deleteFavoriteRequest = useApi().deleteFavoriteRequest;
+  const createFavoriteRequest = useApi().createFavoriteRequest;
+  const getDishesRequest = useApi().getDishesRequest;
 
   const getFavoritesUser = async () => {
     if (beUser) {
@@ -60,7 +58,7 @@ export const DataProvider = ({ children }) => {
       let temp = [];
       let uniqueArr = [];
       for (let i = 0; i < dataDishes.length; i++) {
-        temp = temp.concat(dataDishes[i].ingredients);
+        temp = temp.concat(dataDishes[i].tags);
       }
       for (let i = 0; i < temp.length; i++) {
         if (!uniqueArr.includes(temp[i])) {
@@ -75,7 +73,6 @@ export const DataProvider = ({ children }) => {
     await createFavoriteRequest(producto)
       .then((res) => {
         setFavorites([...favorites, res.data]);
-        console.log("FAVORITO AGREGADO");
       })
       .catch((err) => alert(err.response));
   };
@@ -84,7 +81,6 @@ export const DataProvider = ({ children }) => {
     await deleteFavoriteRequest(id)
       .then((res) => {
         setFavorites(favorites.filter((favorite) => favorite._id !== id));
-        console.log("FAVORITO ELIMINADO");
       })
       .catch((err) => alert(err.response));
   };
