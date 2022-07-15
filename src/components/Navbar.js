@@ -29,6 +29,10 @@ export const Navbar = () => {
         <div className={styles.opcionesNavbar}>
           <ul>
             <li>
+              <a href="http://localhost:3000" className="button">Para creadores</a>
+            </li>
+
+            <li>
               <button
                 type="button"
                 className={styles.buttonNav}
