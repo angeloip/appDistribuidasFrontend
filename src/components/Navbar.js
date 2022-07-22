@@ -28,9 +28,6 @@ export const Navbar = () => {
 
         <div className={styles.opcionesNavbar}>
           <ul>
-            <li>
-              <a href="http://localhost:3000" className="button">Para creadores</a>
-            </li>
 
             <li>
               <button
@@ -54,6 +51,18 @@ export const Navbar = () => {
                 Buscar por ingredientes
               </Link>
             </li>
+
+            {beUser ? (
+              <li>
+                  <Link
+                    className={`${styles.userBtn} ${styles.linkNav}`}
+                    to="/dashboard"
+                  >
+                    Dashboard
+                  </Link>
+              </li>
+              ) : (<></>)
+            }
 
             <li>
               {beUser ? (

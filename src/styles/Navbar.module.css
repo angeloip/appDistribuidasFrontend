@@ -67,3 +67,12 @@
   color: #fff;
   border-radius: 5px;
 }
+
+.userBtn {
+  outline: none;
+  border: none;
+  background-color: #3b9aa7;
+  padding: 8px 10px;
+  color: #fff;
+  border-radius: 5px;
+}
