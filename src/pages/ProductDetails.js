@@ -1,6 +1,7 @@
 import { useEffect, useState } from "react";
 import { useParams } from "react-router-dom";
 import { AiOutlineHeart, AiFillHeart } from "react-icons/ai";
+import { Money, AiOutlineDollar } from "react-icons/ai";
 import { ImSpinner9 } from "react-icons/im";
 import styles from "../styles/ProductDetails.module.css";
 import { useData } from "../context/dataContext";
@@ -20,6 +21,7 @@ export const ProductDetails = () => {
   const deleteToFavorites = useData().deleteToFavorites;
   const [beUser] = useAuth().beUser;
   const [isCheck, setIsCheck] = useState(false);
+  const [isBuy, setIsBuy] = useState(false);
   const params = useParams();
   const [dataDishes] = useData().dataDishes;
   const getDishRequest = useApi().getDishRequest;
@@ -56,6 +58,34 @@ export const ProductDetails = () => {
   };
 
   const eliminarFavorito = async () => {
+    setIsBtnLoading(true);
+    const deleteFav = favorites.find(
+      (favorite) => favorite.dish._id === params.id
+    );
+    await deleteToFavorites(deleteFav._id);
+    setIsBtnLoading(false);
+  };
+
+  const comprarProducto = async () => {
+    if (beUser) {
+      setIsBtnLoading(true);
+
+      const tempProduct = {
+        dishId: productoDetalles._id,
+        userId: beUser.id
+      };
+
+      await addToFavorites(tempProduct);
+      setIsBtnLoading(false);
+    } else {
+      Toast.fire({
+        icon: "info",
+        title: "Inicia Sesión para agregar favoritos"
+      });
+    }
+  };
+
+  const verEstado = async () => {
     setIsBtnLoading(true);
     const deleteFav = favorites.find(
       (favorite) => favorite.dish._id === params.id
@@ -154,6 +184,34 @@ export const ProductDetails = () => {
                         </>
                       )}
                     </>
+                  )}
+                </button>
+                <button
+                  className={styles.buyBtn}
+                  type="button"
+                  disabled={isBtnLoading}
+                  onClick={
+                    isBuy ? () => verEstado : () => comprarProducto
+                  }
+                >
+                  {isBuy? (
+                    <>
+                        {" "}
+                        <AiOutlineDollar
+                          size={20}
+                          className={styles.iconMoney}
+                        />
+                        <span>Comprar</span>
+                      </>
+                  ) : (
+                    <>
+                        {" "}
+                        <AiOutlineDollar
+                          size={20}
+                          className={styles.iconMoney}
+                        />
+                        <span>Comprado</span>
+                      </>
                   )}
                 </button>
               </div>
