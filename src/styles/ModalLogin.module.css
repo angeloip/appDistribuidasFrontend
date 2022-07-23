@@ -6,6 +6,9 @@
 .modalTitle {
   font-size: 18px;
 }
+.iconClose {
+  display: inline;
+}
 .buttonGl {
   background: #0085ff;
   font-weight: 600;
@@ -56,6 +59,13 @@
   width: 100%;
   padding: 10px;
   background: #0085ff;
+  color: #fff;
+  font-weight: 500;
+}
+.disabledButton {
+  display: flex;
+  align-items: center;
+  justify-content: center;
 }
 
 .formulario .btnSubmitForm:hover {
@@ -71,7 +81,7 @@
   /* font-size: 18px; */
   padding: 1.25rem;
   color: #1f1f1f;
-  transition: 0.2s;
+  transition: 0.3s;
 }
 
 .divided_box {
@@ -143,6 +153,7 @@
   color: #1db91d;
 }
 .iconLoading {
+  margin-right: 5px;
   animation: spinner 1s linear infinite;
 }
 @keyframes spinner {
@@ -150,9 +161,7 @@
     transform: rotate(360deg);
   }
 }
-.buttonLoading {
-  margin-right: 5px;
-}
+
 .formulario .buttonForgotPass {
   width: auto;
   padding: 0;

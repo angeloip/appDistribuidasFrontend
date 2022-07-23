@@ -1,0 +1,66 @@
+.displayHeader {
+  display: flex;
+  align-items: center;
+  justify-content: space-between;
+}
+
+.modalTitle {
+  font-size: 18px;
+}
+.iconClose {
+  display: inline;
+}
+.buttonGl {
+  border: none;
+  cursor: pointer;
+  padding: 10px;
+  border-radius: 5px;
+  color: #fff;
+  transition: 0.3s ease all;
+}
+.displayHeader .buttonGl {
+  background: none;
+  padding: 0;
+  height: 40px;
+  width: 40px;
+  border-radius: 50%;
+}
+.displayHeader .buttonGl:hover {
+  background: rgb(231, 231, 231);
+}
+
+.btnSubmit {
+  border: none;
+  cursor: pointer;
+  outline: none;
+  background: #0085ff;
+  color: #fff;
+  font-weight: 500;
+  padding: 10px;
+  width: 100%;
+  border-radius: 5px;
+  margin-top: 35px;
+  transition: 0.3s;
+  display: flex;
+  align-items: center;
+  justify-content: center;
+}
+.btnSubmit:hover {
+  background: #006cd1;
+}
+
+.containerForm {
+  display: grid;
+  gap: 35px;
+}
+.img_box {
+  max-width: 450px;
+  margin: auto;
+}
+.payImg {
+  width: 100%;
+  border-radius: 5px;
+}
+.cardElement {
+  font-size: 50px;
+}

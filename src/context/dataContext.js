@@ -12,14 +12,18 @@ export const useData = () => {
 
 export const DataProvider = ({ children }) => {
   const [favorites, setFavorites] = useState([]);
+  const [shopping, setShopping] = useState([]);
   const [beUser] = useAuth().beUser;
   const [dataDishes, setDataDishes] = useState([]);
   const [isLoadingDishes, setIsLoadingDishes] = useState(false);
   const [listIngredients, setListIngredients] = useState([]);
+  const getPaymentsRequest = useApi().getPaymentsRequest;
   const getFavoritesRequest = useApi().getFavoritesRequest;
   const deleteFavoriteRequest = useApi().deleteFavoriteRequest;
   const createFavoriteRequest = useApi().createFavoriteRequest;
   const getDishesRequest = useApi().getDishesRequest;
+
+  console.log(shopping);
 
   const getFavoritesUser = async () => {
     if (beUser) {
@@ -28,9 +32,17 @@ export const DataProvider = ({ children }) => {
           const data = res.data;
           setFavorites(data.filter((favorite) => favorite.user === beUser.id));
         })
-        .catch((err) => alert(err.response));
+        .catch((err) => alert(err.response.data));
+
+      await getPaymentsRequest()
+        .then((res) => {
+          const data = res.data;
+          setShopping(data.filter((shop) => shop.user === beUser.id));
+        })
+        .catch((err) => alert(err.response.data));
     } else {
       setFavorites([]);
+      setShopping([]);
     }
   };
 
@@ -87,6 +99,7 @@ export const DataProvider = ({ children }) => {
 
   const value = {
     favorites: [favorites, setFavorites],
+    shopping: [shopping, setShopping],
     dataDishes: [dataDishes, setDataDishes],
     listIngredients: [listIngredients, setListIngredients],
     isLoadingDishes: [isLoadingDishes, setIsLoadingDishes],

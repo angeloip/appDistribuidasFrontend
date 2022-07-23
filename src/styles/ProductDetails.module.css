@@ -62,7 +62,7 @@
   cursor: pointer;
   outline: none;
   background: none;
-  border: 1px solid #ddda39;
+  border: 1px solid #3b9aa7;
   padding: 8px 10px;
   border-radius: 5px;
   margin: auto;
@@ -80,13 +80,21 @@
   font-weight: bold;
 }
 
+.buyBtn:hover {
+  background-color: #ddfbff;
+}
+.buyBtn span {
+  color: #3b9aa7;
+  font-weight: bold;
+}
+
 .iconHeart {
   color: #dd4b39;
   font-weight: bold;
 }
 
 .iconMoney {
-  color: #d2dd39;
+  color: #3b9aa7;
   font-weight: bold;
 }
 

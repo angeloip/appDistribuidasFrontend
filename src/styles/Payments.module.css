@@ -1,11 +1,10 @@
-.favoritesContainer {
+.paymentsContainer {
   padding-top: var(--padding-top-container);
   padding-left: var(--padding-left-container);
   padding-right: var(--padding-right-container);
   margin: auto;
   max-width: var(--max-width-container);
 }
-
 .titleContainer {
   background: #fff;
   padding: 15px 20px;
@@ -19,11 +18,8 @@
   font-size: 20px;
   margin: 0;
 }
-.favoriteBox {
-  width: 100%;
-}
 
-.favoritesSubContainer {
+.paymentsSubContainer {
   width: 100%;
   background: #fff;
   padding: 40px 20px;

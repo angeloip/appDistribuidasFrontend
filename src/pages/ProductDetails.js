@@ -1,7 +1,7 @@
 import { useEffect, useState } from "react";
 import { useParams } from "react-router-dom";
-import { AiOutlineHeart, AiFillHeart } from "react-icons/ai";
-import { Money, AiOutlineDollar } from "react-icons/ai";
+import { AiOutlineHeart, AiFillHeart, AiOutlineDollar } from "react-icons/ai";
+import { BsCartCheck } from "react-icons/bs";
 import { ImSpinner9 } from "react-icons/im";
 import styles from "../styles/ProductDetails.module.css";
 import { useData } from "../context/dataContext";
@@ -10,13 +10,15 @@ import { DetailsProductSkeleton } from "../components/SkeletonMolds";
 import { useApi } from "../context/apiContext";
 import { TabDetails } from "../components/TabDetails";
 import Swal from "sweetalert2";
-import { Test } from "../components/Test";
+import { ModalPay } from "../modals/ModalPay";
 
 export const ProductDetails = () => {
   const [productoDetalles, setProductoDetalles] = useState([]);
+  const [show, setShow] = useState(false);
   const [isLoading, setIsLoading] = useState(false);
   const [isBtnLoading, setIsBtnLoading] = useState(false);
   const [favorites] = useData().favorites;
+  const [shopping] = useData().shopping;
   const addToFavorites = useData().addToFavorites;
   const deleteToFavorites = useData().deleteToFavorites;
   const [beUser] = useAuth().beUser;
@@ -68,31 +70,16 @@ export const ProductDetails = () => {
 
   const comprarProducto = async () => {
     if (beUser) {
-      setIsBtnLoading(true);
-
-      const tempProduct = {
-        dishId: productoDetalles._id,
-        userId: beUser.id
-      };
-
-      await addToFavorites(tempProduct);
-      setIsBtnLoading(false);
+      setShow(true);
     } else {
       Toast.fire({
         icon: "info",
-        title: "Inicia Sesión para agregar favoritos"
+        title: "Inicia Sesión para realizar una compra"
       });
     }
   };
 
-  const verEstado = async () => {
-    setIsBtnLoading(true);
-    const deleteFav = favorites.find(
-      (favorite) => favorite.dish._id === params.id
-    );
-    await deleteToFavorites(deleteFav._id);
-    setIsBtnLoading(false);
-  };
+  const verEstado = async () => {};
 
   const getDish = async () => {
     setIsLoading(true);
@@ -108,7 +95,7 @@ export const ProductDetails = () => {
   const checkFavorite = () => {
     if (favorites.length > 0) {
       for (let i = 0; i < favorites.length; i++) {
-        if (favorites[i]?.dish._id === params.id) {
+        if (favorites[i].dish._id === params.id) {
           setIsCheck(true);
 
           i = favorites.length;
@@ -121,6 +108,22 @@ export const ProductDetails = () => {
     }
   };
 
+  const checkPayment = () => {
+    if (shopping.length > 0) {
+      for (let i = 0; i < shopping.length; i++) {
+        if (shopping[i].dish._id === params.id) {
+          setIsBuy(true);
+
+          i = shopping.length;
+        } else {
+          setIsBuy(false);
+        }
+      }
+    } else {
+      setIsBuy(false);
+    }
+  };
+
   useEffect(() => {
     window.scrollTo({ top: 0 /* , behavior: "smooth"  */ });
     getDish();
@@ -129,6 +132,9 @@ export const ProductDetails = () => {
   useEffect(() => {
     checkFavorite();
   }, [favorites]);
+  useEffect(() => {
+    checkPayment();
+  }, [shopping]);
 
   return (
     <>
@@ -190,33 +196,26 @@ export const ProductDetails = () => {
                   className={styles.buyBtn}
                   type="button"
                   disabled={isBtnLoading}
-                  onClick={
-                    isBuy ? () => verEstado : () => comprarProducto
-                  }
+                  onClick={isBuy ? () => verEstado() : () => comprarProducto()}
                 >
-                  {isBuy? (
+                  {isBuy ? (
                     <>
-                        {" "}
-                        <AiOutlineDollar
-                          size={20}
-                          className={styles.iconMoney}
-                        />
-                        <span>Comprar</span>
-                      </>
+                      {" "}
+                      <BsCartCheck size={20} className={styles.iconMoney} />
+                      <span>Comprado</span>
+                    </>
                   ) : (
                     <>
-                        {" "}
-                        <AiOutlineDollar
-                          size={20}
-                          className={styles.iconMoney}
-                        />
-                        <span>Comprado</span>
-                      </>
+                      {" "}
+                      <AiOutlineDollar size={20} className={styles.iconMoney} />
+                      <span>Comprar</span>
+                    </>
                   )}
                 </button>
               </div>
             </div>
           </div>
+          <ModalPay show={show} setShow={setShow} dish={productoDetalles} />
         </>
       )}
     </>

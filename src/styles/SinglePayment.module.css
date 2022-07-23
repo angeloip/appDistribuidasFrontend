@@ -12,7 +12,7 @@
   border-radius: 5px;
 }
 
-.singleFavoriteContent {
+.singlePaymentContent {
   width: 100%;
   display: flex;
   align-items: center;
@@ -29,8 +29,16 @@
   width: 150px;
   text-align: center;
 }
+.amount,
+.date {
+  display: flex;
+  align-items: center;
+  flex-direction: column;
+  text-align: center;
+}
 
-.category {
+.category,
+.title {
   color: #b2b2b2;
   font-weight: 500;
 }
@@ -39,16 +47,6 @@
   font-size: 18px;
 }
 
-.listIngredients {
-  width: 150px;
-}
-
-.listIngredients ul {
-  padding: 0;
-  padding-left: 25px;
-}
-
-.favoriteBtn,
 .btnView {
   display: flex;
   align-items: center;
@@ -65,16 +63,6 @@
   font-weight: bold;
 }
 
-.favoriteBtn {
-  border: 1px solid #dd4b39;
-  color: #dd4b39;
-  width: 200px;
-}
-
-.favoriteBtn:hover {
-  background-color: #f8e6e5;
-}
-
 .btnView {
   border: 1px solid #0085ff;
   color: #0085ff;
@@ -82,14 +70,4 @@
 
 .btnView:hover {
   background-color: #e3f2ff;
-}
-
-.spinner {
-  color: #dd4b39;
-  animation: spinner 1s linear infinite;
-}
-@keyframes spinner {
-  to {
-    transform: rotate(360deg);
-  }
 }

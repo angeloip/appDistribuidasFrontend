@@ -35,6 +35,12 @@ export const ApiProvider = ({ children }) => {
 
   const createUserRequest = (user) => axios.post(urlUser, user);
 
+  const urlPayment = url + "payment/";
+
+  const getPaymentsRequest = () => axios.get(urlPayment);
+
+  const createPaymentRequest = (data) => axios.post(urlPayment, data);
+
   const value = {
     getFavoritesRequest: getFavoritesRequest,
     deleteFavoriteRequest: deleteFavoriteRequest,
@@ -43,7 +49,9 @@ export const ApiProvider = ({ children }) => {
     getDishRequest: getDishRequest,
     createLoginRequest: createLoginRequest,
     createLoginWithGoogleRequest: createLoginWithGoogleRequest,
-    createUserRequest
+    createUserRequest: createUserRequest,
+    getPaymentsRequest: getPaymentsRequest,
+    createPaymentRequest: createPaymentRequest
   };
 
   return <apiContext.Provider value={value}>{children}</apiContext.Provider>;

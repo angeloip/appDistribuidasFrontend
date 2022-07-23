@@ -138,7 +138,7 @@ export const ModalRegister = ({ showRegister, setShowRegister, setShow }) => {
             }}
             disabled={isLoading}
           >
-            <GrClose size={20} />
+            <GrClose size={20} className={styles.iconClose} />
           </button>
         </div>
       </Modal.Header>
@@ -256,13 +256,10 @@ export const ModalRegister = ({ showRegister, setShowRegister, setShow }) => {
                 {isLoading ? (
                   <button
                     type="button"
-                    className={`${styles.btnForm} ${styles.disabledButton}`}
+                    className={styles.disabledButton}
                     disabled
                   >
-                    <ImSpinner9
-                      className={`${styles.iconLoading} ${styles.buttonLoading}`}
-                    />{" "}
-                    Registrando...
+                    <ImSpinner9 className={styles.iconLoading} /> Registrando...
                   </button>
                 ) : (
                   <button

@@ -8,7 +8,8 @@
   color: #737373;
 }
 
-.short_description ul li {
+.short_description ul li,
+.subParaph ul li {
   color: #737373;
   font-weight: 500;
   margin-left: 20px;
@@ -16,16 +17,21 @@
 
 .short_description ul {
   padding: 0;
+  list-style: disc;
 }
 
 .paraphBold {
   font-weight: 500;
 }
 
-.subParaph {
+.preparationBox .subParaph {
   max-width: 450px;
   font-size: 14px;
   color: #737373;
+}
+.subParaph ul {
+  padding: 0;
+  list-style: disc;
 }
 @media (max-width: 580px) {
   .subParaph {

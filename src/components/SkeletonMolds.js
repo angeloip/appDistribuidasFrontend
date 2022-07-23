@@ -68,6 +68,9 @@ export const DetailsProductSkeleton = () => {
           <div style={{ display: "flex", justifyContent: "center" }}>
             <SkeletonElement type="rectangular" height={40} width={"80%"} />
           </div>
+          <div style={{ display: "flex", justifyContent: "center" }}>
+            <SkeletonElement type="rectangular" height={40} width={"80%"} />
+          </div>
         </div>
       </div>
     </div>

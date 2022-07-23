@@ -24,7 +24,7 @@ export const Favorites = () => {
                   <p className={styles.clean__paragraph}>
                     Aún no ha elegido un plato favorito
                   </p>
-                  <Link to="/" className={styles.btnToShop}>
+                  <Link to="/" className={styles.btnToDish}>
                     Ir a buscar platos
                   </Link>
                 </div>

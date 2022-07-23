@@ -1,7 +1,7 @@
 import nophoto from "../nophoto.jpeg";
 import { Link } from "react-router-dom";
 import { BiLogOut } from "react-icons/bi";
-import { AiOutlineHeart } from "react-icons/ai";
+import { AiOutlineHeart, AiOutlineShoppingCart } from "react-icons/ai";
 import { useAuth } from "../context/authContext";
 import styles from "../styles/DropdownUser.module.css";
 import { useEffect, useRef, useState } from "react";
@@ -28,7 +28,7 @@ export const DropdownUser = () => {
         setFavorites([]);
       })
       .catch((error) => {
-        console.log(error);
+        console.log(error.response.data);
       });
     /* setLoading(false); */
   };
@@ -79,6 +79,18 @@ export const DropdownUser = () => {
                   </div>
 
                   <span>Mis Favoritos</span>
+                </div>
+              </Link>
+            </li>
+
+            <li onClick={() => setActiveDrop(false)}>
+              <Link className={styles.option} to="mis-compras">
+                <div className={styles.elementDrop}>
+                  <div className={styles.iconDropDown}>
+                    <AiOutlineShoppingCart size={20} />
+                  </div>
+
+                  <span>Mis Compras</span>
                 </div>
               </Link>
             </li>

@@ -6,7 +6,7 @@
 .dropData {
   display: flex;
   align-items: center;
-  justify-content: center;
+
   padding: 6px 15px;
   cursor: default;
 }
@@ -61,6 +61,8 @@
 /*********************************/
 .select_menu {
   position: relative;
+
+  align-items: center;
 }
 .select_menu .dropdownContent {
   position: absolute;
@@ -72,6 +74,7 @@
   border: 1px solid rgba(0, 0, 0, 0.1);
   box-shadow: 0 0 10px rgba(0, 0, 0, 0.1);
   display: none;
+  width: 250px;
 }
 .select_menu.active .dropdownContent {
   display: block;

@@ -24,7 +24,7 @@ export const SingleFavorite = ({ favorite }) => {
   return (
     <div className={styles.singleFavoriteContent}>
       <div className={styles.singleImg}>
-        <img src={favorite.dish.image?.url} alt={favorite.dish.name} />
+        <img src={favorite.dish.image.url} alt={favorite.dish.name} />
       </div>
       <div className={styles.singleName}>
         <span className={styles.category}>{favorite.dish.category}</span>
