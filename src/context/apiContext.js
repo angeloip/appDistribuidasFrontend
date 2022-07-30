@@ -24,6 +24,10 @@ export const ApiProvider = ({ children }) => {
   const getDishesRequest = () => axios.get(urlDish);
   const getDishRequest = (id) => axios.get(urlDish + id);
 
+  const urlCategory = url + "categories/";
+
+  const getCategoriesRequest = () => axios.get(urlCategory);
+
   const urlLogin = url + "login/";
 
   const createLoginRequest = (user) => axios.post(urlLogin, user);
@@ -47,6 +51,7 @@ export const ApiProvider = ({ children }) => {
     createFavoriteRequest: createFavoriteRequest,
     getDishesRequest: getDishesRequest,
     getDishRequest: getDishRequest,
+    getCategoriesRequest: getCategoriesRequest,
     createLoginRequest: createLoginRequest,
     createLoginWithGoogleRequest: createLoginWithGoogleRequest,
     createUserRequest: createUserRequest,

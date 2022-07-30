@@ -1,11 +1,12 @@
 import { useEffect, useState } from "react";
-import { useParams } from "react-router-dom";
+import { useParams, useNavigate } from "react-router-dom";
 import { AiOutlineHeart, AiFillHeart, AiOutlineDollar } from "react-icons/ai";
 import { BsCartCheck } from "react-icons/bs";
 import { ImSpinner9 } from "react-icons/im";
 import styles from "../styles/ProductDetails.module.css";
 import { useData } from "../context/dataContext";
 import { useAuth } from "../context/authContext";
+import noImg from "../img/no-image-dish.jpg";
 import { DetailsProductSkeleton } from "../components/SkeletonMolds";
 import { useApi } from "../context/apiContext";
 import { TabDetails } from "../components/TabDetails";
@@ -25,8 +26,8 @@ export const ProductDetails = () => {
   const [isCheck, setIsCheck] = useState(false);
   const [isBuy, setIsBuy] = useState(false);
   const params = useParams();
-  const [dataDishes] = useData().dataDishes;
   const getDishRequest = useApi().getDishRequest;
+  const navigate = useNavigate();
 
   const Toast = Swal.mixin({
     toast: true,
@@ -83,13 +84,17 @@ export const ProductDetails = () => {
 
   const getDish = async () => {
     setIsLoading(true);
+
     await getDishRequest(params.id)
-      .then((res) => setProductoDetalles(res.data))
+      .then((res) => {
+        setProductoDetalles(res.data);
+        setIsLoading(false);
+      })
       .catch((err) => {
-        alert(err.response);
-        console.log(err.response);
+        if (err.response.status === 500 || 404) {
+          navigate("*");
+        }
       });
-    setIsLoading(false);
   };
 
   const checkFavorite = () => {
@@ -126,6 +131,7 @@ export const ProductDetails = () => {
 
   useEffect(() => {
     window.scrollTo({ top: 0 /* , behavior: "smooth"  */ });
+
     getDish();
   }, [params.id]);
 
@@ -149,7 +155,7 @@ export const ProductDetails = () => {
               <div className={styles.detallesPhotoProduct}>
                 <img
                   className={styles.photoDetalles}
-                  src={productoDetalles.image?.url}
+                  src={productoDetalles.image?.url || noImg}
                   alt={productoDetalles.name}
                 />
               </div>

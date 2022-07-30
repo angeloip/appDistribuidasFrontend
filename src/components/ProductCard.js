@@ -5,6 +5,7 @@ import { useEffect, useState } from "react";
 import { ImSpinner9 } from "react-icons/im";
 import { useAuth } from "../context/authContext";
 import { useData } from "../context/dataContext";
+import noImg from "../img/no-image-dish.jpg";
 import Swal from "sweetalert2";
 
 export const ProductCard = ({ producto }) => {
@@ -83,7 +84,7 @@ export const ProductCard = ({ producto }) => {
           <div className={styles.imgProductoCard}>
             <img
               className={styles.photoProduct}
-              src={producto.image.url}
+              src={producto.image.url || noImg}
               alt={producto.name}
             />
           </div>

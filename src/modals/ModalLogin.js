@@ -10,6 +10,7 @@ import styles from "../styles/ModalLogin.module.css";
 import { ModalRegister } from "./ModalRegister";
 import { useAuth } from "../context/authContext";
 import { useApi } from "../context/apiContext";
+import Swal from "sweetalert2";
 
 export const ModalLogin = ({ show, setShow }) => {
   const [error, setError] = useState("");
@@ -27,6 +28,18 @@ export const ModalLogin = ({ show, setShow }) => {
   const createLoginRequest = useApi().createLoginRequest;
   const createLoginWithGoogleRequest = useApi().createLoginWithGoogleRequest;
 
+  const Toast = Swal.mixin({
+    toast: true,
+    position: "top-end",
+    showConfirmButton: false,
+    timer: 3000,
+    timerProgressBar: true,
+    didOpen: (toast) => {
+      toast.addEventListener("mouseenter", Swal.stopTimer);
+      toast.addEventListener("mouseleave", Swal.resumeTimer);
+    }
+  });
+
   const handleLogin = async (email, password) => {
     setIsLoading(true);
     await logIn(email, password)
@@ -39,10 +52,13 @@ export const ModalLogin = ({ show, setShow }) => {
         await createLoginRequest(user)
           .then((res) => {
             setBeUser(res.data);
-            console.log("HA INICIADO SESIÓN");
             saveToken(res.data.token);
             setShow(false);
             setHidden(true);
+            Toast.fire({
+              icon: "success",
+              title: `Bienvenido ${res.data.name}`
+            });
           })
           .catch((err) => {
             const error = err.response;
@@ -84,10 +100,13 @@ export const ModalLogin = ({ show, setShow }) => {
             await createLoginWithGoogleRequest(userData)
               .then((res) => {
                 setBeUser(res.data);
-                console.log("SE HA LOGUEADO CORRECTAMENTE CON GOOGLE");
                 saveToken(res.data.token);
                 setShow(false);
                 setHidden(true);
+                Toast.fire({
+                  icon: "success",
+                  title: `Bienvenido ${res.data.name}`
+                });
               })
               .catch((err) => {
                 const error = err.response;

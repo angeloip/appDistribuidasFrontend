@@ -4,6 +4,7 @@ import { GrClose } from "react-icons/gr";
 import { useState } from "react";
 import { loadStripe } from "@stripe/stripe-js";
 import Swal from "sweetalert2";
+import noImg from "../img/no-image-dish.jpg";
 import {
   CardElement,
   Elements,
@@ -74,6 +75,8 @@ const Checkout = ({ isLoading, setIsLoading, dish, setShow }) => {
         .catch((err) => {
           setIsError(err.response.data.message);
         });
+    } else {
+      setIsError(error.message);
     }
     setIsLoading(false);
   };
@@ -133,7 +136,7 @@ export const ModalPay = ({ show, setShow, dish }) => {
         <div className={`container ${styles.containerForm}`}>
           <div className={styles.img_box}>
             <img
-              src={dish.image?.url}
+              src={dish.image?.url || noImg}
               alt={dish.name}
               className={styles.payImg}
             />

@@ -15,15 +15,16 @@ export const DataProvider = ({ children }) => {
   const [shopping, setShopping] = useState([]);
   const [beUser] = useAuth().beUser;
   const [dataDishes, setDataDishes] = useState([]);
+  const [categories, setCategories] = useState([]);
   const [isLoadingDishes, setIsLoadingDishes] = useState(false);
+  const [isLoadingCategories, setIsLoadingCategories] = useState(false);
   const [listIngredients, setListIngredients] = useState([]);
   const getPaymentsRequest = useApi().getPaymentsRequest;
   const getFavoritesRequest = useApi().getFavoritesRequest;
   const deleteFavoriteRequest = useApi().deleteFavoriteRequest;
   const createFavoriteRequest = useApi().createFavoriteRequest;
   const getDishesRequest = useApi().getDishesRequest;
-
-  console.log(shopping);
+  const getCategoriesRequest = useApi().getCategoriesRequest;
 
   const getFavoritesUser = async () => {
     if (beUser) {
@@ -65,6 +66,18 @@ export const DataProvider = ({ children }) => {
     getData();
   }, []);
 
+  const getCategories = async () => {
+    setIsLoadingCategories(true);
+    await getCategoriesRequest()
+      .then((res) => setCategories(res.data))
+      .catch((err) => alert(err.response));
+    setIsLoadingCategories(false);
+  };
+
+  useEffect(() => {
+    getCategories();
+  }, []);
+
   useEffect(() => {
     if (dataDishes.length > 0) {
       let temp = [];
@@ -101,8 +114,10 @@ export const DataProvider = ({ children }) => {
     favorites: [favorites, setFavorites],
     shopping: [shopping, setShopping],
     dataDishes: [dataDishes, setDataDishes],
+    categories: [categories, setCategories],
     listIngredients: [listIngredients, setListIngredients],
     isLoadingDishes: [isLoadingDishes, setIsLoadingDishes],
+    isLoadingCategories: [isLoadingCategories, setIsLoadingCategories],
     addToFavorites: addToFavorites,
     deleteToFavorites: deleteToFavorites
   };

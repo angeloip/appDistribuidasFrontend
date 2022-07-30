@@ -2,8 +2,9 @@
   padding-top: var(--padding-top-container);
   padding-left: var(--padding-left-container);
   padding-right: var(--padding-right-container);
-  margin: auto;
+  width: 100%;
   max-width: var(--max-width-container);
+  margin: auto;
 }
 
 .detallesSubContainer {

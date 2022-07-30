@@ -1,0 +1,72 @@
+.categoriesBox {
+  padding-top: 75px;
+  width: 100%;
+  margin: 0 auto;
+}
+
+.figureCategorie {
+  width: 100%;
+  background-image: url(../img/bg-category.jpg);
+  background-position: center;
+  background-repeat: no-repeat;
+  background-size: cover;
+  height: 200px;
+  display: flex;
+  align-items: center;
+  justify-content: center;
+  color: #fff;
+}
+.figureCategorie h2 {
+  font-size: 50px;
+  font-weight: 500;
+}
+
+.categoriesContainer {
+  padding-left: var(--padding-left-container);
+  padding-right: var(--padding-right-container);
+  width: 100%;
+  max-width: var(--max-width-container);
+  margin: 30px auto;
+}
+
+.subCategoriesContainer {
+  border-radius: 10px;
+  display: flex;
+  align-items: flex-start;
+  justify-content: space-between;
+  gap: 30px;
+}
+
+.categoryFilters {
+  background: #fff;
+  border-radius: 10px;
+  padding: 10px 20px;
+
+  width: 500px;
+  max-width: 100%;
+}
+
+.categoryFilters .boxTittle {
+  font-weight: 500;
+  font-size: 24px;
+  padding: 10px 0;
+  border-bottom: 1px solid #cfcfcf;
+}
+
+.results {
+  width: 100%;
+  display: grid;
+  gap: 1.3rem;
+  grid-template-columns: repeat(auto-fill, minmax(220px, 1fr));
+}
+
+.subCategoriesContainer {
+}
+@media (max-width: 1000px) {
+  .subCategoriesContainer {
+    flex-wrap: wrap;
+  }
+  .categoryFilters {
+    width: 100%;
+  }
+}

@@ -1,0 +1,85 @@
+.accordion {
+  max-width: 100%;
+}
+
+.item {
+}
+
+.title,
+.content {
+  color: #000000de;
+}
+.title h2 {
+  font-weight: 500;
+  font-size: 24px;
+}
+.title {
+  display: flex;
+  justify-content: space-between;
+  align-items: center;
+  cursor: pointer;
+  padding: 10px 0px;
+}
+.iconExpand {
+  transition: all 0.3s ease;
+}
+.iconExpand.active {
+  transform: rotate(180deg);
+}
+.content {
+  overflow: hidden;
+  transition: all 0.3s ease;
+}
+.content.active {
+  transition: all 0.3s ease;
+}
+
+.radio_group {
+  display: flex;
+  flex-direction: column;
+  gap: 15px;
+  padding: 10px 0;
+}
+
+.radio {
+  font-size: 20px;
+  text-transform: capitalize;
+  display: inline-block;
+  vertical-align: middle;
+  position: relative;
+  padding-left: 30px;
+  cursor: pointer;
+}
+
+.radio input[type="radio"] {
+  display: none;
+}
+
+.radio span {
+  height: 20px;
+  width: 20px;
+  border-radius: 50%;
+  border: 3px solid #ff866e;
+  display: block;
+  position: absolute;
+  left: 0;
+  top: 5px;
+}
+
+.radio span:after {
+  content: "";
+  height: 8px;
+  width: 8px;
+  background: #ff866e;
+  display: block;
+  position: absolute;
+  left: 50%;
+  top: 50%;
+  transform: translate(-50%, -50%) scale(0);
+  border-radius: 50%;
+  transition: all 0.3s;
+}
+
+.radio input[type="radio"]:checked ~ span:after {
+  transform: translate(-50%, -50%) scale(1);
+}

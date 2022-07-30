@@ -5,7 +5,7 @@
 @import url("https://fonts.googleapis.com/css2?family=Roboto:ital,wght@0,300;0,400;0,500;0,700;1,300;1,400;1,500&display=swap");
 
 :root {
-  --max-width-container: 1400px;
+  --max-width-container: 1700px;
   --padding-top-container: 100px;
   --padding-left-container: 30px;
   --padding-right-container: 30px;
@@ -25,7 +25,13 @@ body {
   -webkit-font-smoothing: antialiased;
   -moz-osx-font-smoothing: grayscale;
   background: #e4e9f7;
+}
+
+#root {
   min-height: 100vh;
+  display: flex;
+  flex-direction: column;
+  width: 100%;
 }
 
 code {

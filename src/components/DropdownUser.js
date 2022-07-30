@@ -6,6 +6,7 @@ import { useAuth } from "../context/authContext";
 import styles from "../styles/DropdownUser.module.css";
 import { useEffect, useRef, useState } from "react";
 import { useData } from "../context/dataContext";
+import Swal from "sweetalert2";
 
 export const DropdownUser = () => {
   const [beUser, setBeUser] = useAuth().beUser;
@@ -15,6 +16,18 @@ export const DropdownUser = () => {
   const [activeDrop, setActiveDrop] = useState(false);
   const ref = useRef();
 
+  const Toast = Swal.mixin({
+    toast: true,
+    position: "top-end",
+    showConfirmButton: false,
+    timer: 3000,
+    timerProgressBar: true,
+    didOpen: (toast) => {
+      toast.addEventListener("mouseenter", Swal.stopTimer);
+      toast.addEventListener("mouseleave", Swal.resumeTimer);
+    }
+  });
+
   const classMenu = activeDrop
     ? `${styles.select_menu} ${styles.active}`
     : styles.select_menu;
@@ -23,9 +36,12 @@ export const DropdownUser = () => {
     /* setLoading(true); */
     await logOut()
       .then((res) => {
-        console.log("Ha cerrado sesión");
         setBeUser(null);
         setFavorites([]);
+        Toast.fire({
+          icon: "success",
+          title: `Ha cerrado sesión`
+        });
       })
       .catch((error) => {
         console.log(error.response.data);
