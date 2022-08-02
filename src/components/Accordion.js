@@ -1,13 +1,9 @@
 import styles from "../styles/Accordion.module.css";
 import { MdOutlineExpandMore } from "react-icons/md";
 import { useState, useRef } from "react";
-import Radio from "@mui/material/Radio";
-import RadioGroup from "@mui/material/RadioGroup";
-import FormControlLabel from "@mui/material/FormControlLabel";
-import FormControl from "@mui/material/FormControl";
 import { useData } from "../context/dataContext";
 
-export const Accordion = ({ setNameCategory }) => {
+export const Accordion = ({ nameCategory, setNameCategory, isLoading }) => {
   const [categories] = useData().categories;
   const [isOpen, setIsOpen] = useState(true);
 
@@ -40,7 +36,7 @@ export const Accordion = ({ setNameCategory }) => {
         <div
           ref={content}
           style={{
-            maxHeight: isOpen ? `350px` : "0px"
+            maxHeight: isOpen ? `450px` : "0px"
           }}
           className={
             isOpen ? `${styles.content} ${styles.active}` : `${styles.content}`
@@ -48,13 +44,27 @@ export const Accordion = ({ setNameCategory }) => {
         >
           <div>
             <div className={styles.radio_group}>
+              <label className={styles.radio}>
+                <input
+                  type="radio"
+                  name="category"
+                  value="Todo"
+                  onChange={handleChange}
+                  checked={nameCategory === "Todo" ? true : false}
+                  disabled={isLoading}
+                />
+                Todo
+                <span></span>
+              </label>
               {categories.map((category) => (
                 <label className={styles.radio} key={category._id}>
                   <input
                     type="radio"
-                    name="gender"
+                    name="category"
                     value={category.name}
                     onChange={handleChange}
+                    checked={nameCategory === category.name ? true : false}
+                    disabled={isLoading}
                   />
                   {category.name}
                   <span></span>

@@ -1,10 +1,63 @@
 import styles from "../styles/Categories.module.css";
 import { Accordion } from "../components/Accordion";
 import { ProductCardSkeleton } from "../components/SkeletonMolds";
-import { useState } from "react";
+import { useEffect, useState } from "react";
+import { ProductCard } from "../components/ProductCard";
+import { useApi } from "../context/apiContext";
+import Spinner from "../components/Spinner";
 
 export const Categories = () => {
-  const [nameCategory, setNameCategory] = useState("Categoría");
+  const [nameCategory, setNameCategory] = useState("Todo");
+  const [isLoading, setIsLoading] = useState(false);
+  const [isLoadingBtn, setIsLoadingBtn] = useState(false);
+  const getDishesForCategoryRequest = useApi().getDishesForCategoryRequest;
+  const [data, setData] = useState([]);
+  const [page, setPage] = useState(1);
+  document.title = "Categorías";
+
+  const removeAccents = (str) => {
+    return str.normalize("NFD").replace(/[\u0300-\u036f]/g, "");
+  };
+  const setCategory = async () => {
+    setIsLoading(true);
+    const category = {
+      category: nameCategory
+    };
+    await getDishesForCategoryRequest(category)
+      .then((res) => {
+        setData(res.data.docs);
+        setPage(1);
+      })
+      .catch((error) => alert(error.response));
+
+    setIsLoading(false);
+  };
+  const moreData = async () => {
+    setIsLoadingBtn(true);
+    const category = {
+      category: nameCategory
+    };
+    await getDishesForCategoryRequest(category, page)
+      .then((res) => setData((prevData) => prevData.concat(res.data.docs)))
+      .catch((error) => alert(error.response));
+
+    setIsLoadingBtn(false);
+  };
+
+  useEffect(() => {
+    if (page !== 1) {
+      moreData();
+    }
+  }, [page]);
+
+  useEffect(() => {
+    setCategory();
+  }, [nameCategory]);
+
+  useEffect(() => {
+    window.scrollTo({ top: 0, behavior: "auto" });
+  }, []);
+
   return (
     <div className={styles.categoriesBox}>
       <figure className={styles.figureCategorie}>
@@ -17,13 +70,35 @@ export const Categories = () => {
             <Accordion
               nameCategory={nameCategory}
               setNameCategory={setNameCategory}
+              isLoading={isLoading}
             />
           </div>
 
           <div className={styles.results}>
-            {[...Array(10)].map((x, i) => (
-              <ProductCardSkeleton key={i} />
-            ))}
+            <div className={styles.cardsContent}>
+              {isLoading
+                ? [...Array(10)].map((x, i) => <ProductCardSkeleton key={i} />)
+                : data.map((producto) => (
+                    <ProductCard key={producto._id} producto={producto} />
+                  ))}
+            </div>
+
+            <div className={styles.load}>
+              <button
+                className={styles.loadBtn}
+                disabled={isLoadingBtn}
+                onClick={() => setPage(page + 1)}
+              >
+                {isLoadingBtn ? (
+                  <>
+                    <Spinner size={20} color={"#fff"} />
+                    Cargando...
+                  </>
+                ) : (
+                  "Cargar Más"
+                )}
+              </button>
+            </div>
           </div>
         </div>
       </div>

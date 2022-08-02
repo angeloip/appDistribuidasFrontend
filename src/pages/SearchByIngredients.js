@@ -12,6 +12,8 @@ export const SearchByIngredients = () => {
   const [selectedOptions, setSelectedOptions] = useState([]);
   const [dataDishes] = useData().dataDishes;
   const [matchingDishes, setMatchingDishes] = useState(null);
+  document.title = "Buscar por Ingredientes";
+  window.scrollTo({ top: 0, behavior: "auto" });
 
   const Toast = Swal.mixin({
     toast: true,

@@ -16,13 +16,15 @@
   padding-right: var(--padding-right-container);
   margin: auto;
   max-width: var(--max-width-container);
+  gap: 20px;
 }
 
 .logo {
-  height: 35px;
+  max-width: 180px;
 }
 .logo img {
-  height: 100%;
+  width: 100%;
+  min-width: 100px;
 }
 
 .opcionesNavbar {
@@ -75,4 +77,26 @@
   padding: 8px 10px;
   color: #fff;
   border-radius: 5px;
+}
+
+.barContent {
+  display: none;
+}
+
+@media (max-width: 960px) {
+  .opcionesNavbar {
+    display: none;
+  }
+  .barContent {
+    display: block;
+  }
+}
+
+@media (max-width: 600px) {
+  .searchProductBox {
+    display: none;
+  }
+  .logo {
+    max-width: 130px;
+  }
 }

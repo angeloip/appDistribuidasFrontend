@@ -14,7 +14,7 @@ const Landing = () => {
     >
       <section className="cover mx-auto text-left px-10 pt-10">
         <div className="flex items-center justify-between flex-col lg:flex-row">
-          <div>
+          <div className="p-4">
             <motion.h1
               initial={{ x: "-100vw" }}
               animate={{ x: 0 }}

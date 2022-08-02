@@ -6,6 +6,8 @@ import { Link } from "react-router-dom";
 
 export const Favorites = () => {
   const [favorites] = useData().favorites;
+  document.title = "Mis Favoritos";
+  window.scrollTo({ top: 0, behavior: "auto" });
   return (
     <div className={styles.favoritesContainer}>
       <div className={styles.titleContainer}>

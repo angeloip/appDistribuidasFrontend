@@ -1,3 +1,11 @@
+.tabsContainer {
+  width: 450px;
+}
+
+.tabElement {
+  width: 450px;
+}
+
 .ingredientsBox {
   display: flex;
   gap: 15px;
@@ -35,6 +43,20 @@
 }
 @media (max-width: 580px) {
   .subParaph {
+    width: auto;
+  }
+}
+
+@media (max-width: 570px) {
+  .tabsContainer,
+  .tabElement {
+    width: 400px;
+  }
+}
+
+@media (max-width: 520px) {
+  .tabsContainer,
+  .tabElement {
     width: auto;
   }
 }

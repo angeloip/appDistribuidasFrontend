@@ -19,6 +19,7 @@
 .figureCategorie h2 {
   font-size: 50px;
   font-weight: 500;
+  text-align: center;
 }
 
 .categoriesContainer {
@@ -55,12 +56,37 @@
 
 .results {
   width: 100%;
+}
+
+.cardsContent {
+  width: 100%;
   display: grid;
   gap: 1.3rem;
   grid-template-columns: repeat(auto-fill, minmax(220px, 1fr));
 }
+.load {
+  display: flex;
+  align-items: center;
+  justify-content: center;
+  margin-top: 50px;
+}
+.loadBtn {
+  display: flex;
+  align-items: center;
+  justify-content: center;
+  gap: 10px;
+  border: none;
+  cursor: pointer;
+  border-radius: 5px;
+  color: #fff;
+  padding: 10px 30px;
+  background: #0085ff;
+  font-weight: 500;
+  transition: 0.3s ease all;
+}
 
-.subCategoriesContainer {
+.loadBtn:hover {
+  background: #006cd1;
 }
 @media (max-width: 1000px) {
   .subCategoriesContainer {

@@ -6,6 +6,8 @@ import { useData } from "../context/dataContext";
 
 export const Payments = () => {
   const [shopping] = useData().shopping;
+  document.title = "Mis Compras";
+  window.scrollTo({ top: 0, behavior: "auto" });
   return (
     <div className={styles.paymentsContainer}>
       <div className={styles.titleContainer}>

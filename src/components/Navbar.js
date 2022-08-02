@@ -6,8 +6,9 @@ import { ModalLogin } from "../modals/ModalLogin";
 
 import styles from "../styles/Navbar.module.css";
 import { DropdownUser } from "./DropdownUser";
-import { ListCategories } from "./ListCategories";
 import { Search } from "./Search";
+import { FaBars } from "react-icons/fa";
+import { BarsOptions } from "./BarsOptions";
 
 export const Navbar = () => {
   const [beUser] = useAuth().beUser;
@@ -29,17 +30,9 @@ export const Navbar = () => {
         <div className={styles.opcionesNavbar}>
           <ul>
             <li>
-              <button
-                type="button"
-                className={styles.buttonNav}
-                onClick={() => setShowCanvas(true)}
-              >
+              <Link to="/categorias" className={styles.buttonNav}>
                 Categorías
-              </button>
-              <ListCategories
-                showCanvas={showCanvas}
-                setShowCanvas={setShowCanvas}
-              />
+              </Link>
             </li>
 
             <li>
@@ -65,6 +58,13 @@ export const Navbar = () => {
             </li>
             <ModalLogin show={show} setShow={setShow} />
           </ul>
+        </div>
+
+        <div className={styles.barContent}>
+          <button /* onClick={() => setShowCanvas(true)} */>
+            <FaBars size={20} fill={"#f24726"} />
+          </button>
+          <BarsOptions showCanvas={showCanvas} setShowCanvas={setShowCanvas} />
         </div>
       </div>
     </nav>

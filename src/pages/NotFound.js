@@ -4,6 +4,8 @@ import notFoundImage from "../img/not-found-icon.png";
 import { HiHome } from "react-icons/hi";
 
 export const NotFound = () => {
+  document.title = "Página no encontrada";
+  window.scrollTo({ top: 0, behavior: "auto" });
   return (
     <div className={styles.notFoundContainer}>
       <div className={styles.notFoundSubContainer}>

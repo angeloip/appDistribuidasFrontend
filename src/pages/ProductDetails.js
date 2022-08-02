@@ -88,6 +88,7 @@ export const ProductDetails = () => {
     await getDishRequest(params.id)
       .then((res) => {
         setProductoDetalles(res.data);
+        document.title = res.data.name;
         setIsLoading(false);
       })
       .catch((err) => {
@@ -177,7 +178,9 @@ export const ProductDetails = () => {
                         <>
                           {" "}
                           <AiFillHeart size={20} className={styles.iconHeart} />
-                          <span>Eliminar de favoritos</span>
+                          <span className={styles.textIcon}>
+                            Eliminar de favoritos
+                          </span>
                         </>
                       )}
                     </>
@@ -192,14 +195,20 @@ export const ProductDetails = () => {
                             size={20}
                             className={styles.iconHeart}
                           />
-                          <span>Agregar a favoritos</span>
+                          <span className={styles.textIcon}>
+                            Agregar a favoritos
+                          </span>
                         </>
                       )}
                     </>
                   )}
                 </button>
                 <button
-                  className={styles.buyBtn}
+                  className={
+                    isBuy
+                      ? `${styles.viewBtn} ${styles.trsBtn}`
+                      : `${styles.buyBtn} ${styles.trsBtn}`
+                  }
                   type="button"
                   disabled={isBtnLoading}
                   onClick={isBuy ? () => verEstado() : () => comprarProducto()}
@@ -207,14 +216,14 @@ export const ProductDetails = () => {
                   {isBuy ? (
                     <>
                       {" "}
-                      <BsCartCheck size={20} className={styles.iconMoney} />
-                      <span>Comprado</span>
+                      <BsCartCheck size={20} className={styles.iconCart} />
+                      <span className={styles.textIcon}>Comprado</span>
                     </>
                   ) : (
                     <>
                       {" "}
-                      <AiOutlineDollar size={20} className={styles.iconMoney} />
-                      <span>Comprar</span>
+                      <AiOutlineDollar size={20} className={styles.iconBuy} />
+                      <span className={styles.textIcon}>Comprar</span>
                     </>
                   )}
                 </button>
