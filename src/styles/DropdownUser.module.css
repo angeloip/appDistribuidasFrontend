@@ -61,7 +61,7 @@
 /*********************************/
 .select_menu {
   position: relative;
-
+  height: 30px;
   align-items: center;
 }
 .select_menu .dropdownContent {

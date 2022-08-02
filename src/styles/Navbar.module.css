@@ -79,24 +79,56 @@
   border-radius: 5px;
 }
 
-.barContent {
+.iconsContent {
   display: none;
 }
 
-@media (max-width: 960px) {
+.iconBox {
+  height: 24px;
+}
+.btnIcons {
+  font-size: 24px;
+  color: #f24726;
+}
+
+.searchBox {
+  display: none;
+}
+
+@media (max-width: 1050px) {
+  .logo {
+    max-width: 150px;
+  }
+}
+
+@media (max-width: 990px) {
   .opcionesNavbar {
     display: none;
   }
-  .barContent {
+  .iconsContent {
+    display: flex;
+    align-items: center;
+    gap: 20px;
+  }
+}
+
+@media (max-width: 680px) {
+  .searchProductBox {
+    display: none;
+  }
+  .searchBox {
     display: block;
   }
 }
 
 @media (max-width: 600px) {
-  .searchProductBox {
-    display: none;
-  }
   .logo {
     max-width: 130px;
+  }
+}
+
+@media (max-width: 375px) {
+  .btnIcons {
+    font-size: 20px;
   }
 }

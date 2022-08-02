@@ -7,7 +7,7 @@ import { ModalLogin } from "../modals/ModalLogin";
 import styles from "../styles/Navbar.module.css";
 import { DropdownUser } from "./DropdownUser";
 import { Search } from "./Search";
-import { FaBars } from "react-icons/fa";
+import { FaBars, FaRegUser, FaSearch } from "react-icons/fa";
 import { BarsOptions } from "./BarsOptions";
 
 export const Navbar = () => {
@@ -60,11 +60,34 @@ export const Navbar = () => {
           </ul>
         </div>
 
-        <div className={styles.barContent}>
-          <button /* onClick={() => setShowCanvas(true)} */>
-            <FaBars size={20} fill={"#f24726"} />
-          </button>
-          <BarsOptions showCanvas={showCanvas} setShowCanvas={setShowCanvas} />
+        <div className={styles.iconsContent}>
+          <div className={styles.iconBox}>
+            <button
+              className={styles.btnIcons}
+              onClick={() => setShowCanvas(true)}
+            >
+              <FaBars />
+            </button>
+            <BarsOptions
+              showCanvas={showCanvas}
+              setShowCanvas={setShowCanvas}
+            />
+          </div>
+
+          <div className={`${styles.iconBox} ${styles.searchBox}`}>
+            <button className={styles.btnIcons}>
+              <FaSearch />
+            </button>
+          </div>
+          <div className={beUser ? "" : styles.iconBox}>
+            {beUser ? (
+              <DropdownUser />
+            ) : (
+              <button className={styles.btnIcons} onClick={() => setShow(true)}>
+                <FaRegUser />
+              </button>
+            )}
+          </div>
         </div>
       </div>
     </nav>

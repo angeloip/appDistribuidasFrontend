@@ -60,20 +60,11 @@ export const BarsOptions = ({ showCanvas, setShowCanvas }) => {
         </Offcanvas.Header>
         <Offcanvas.Body>
           <Link
-            to="/mis-favoritos"
+            to="/categorias"
             className={styles.boxCategory}
             onClick={() => setShowCanvas(false)}
           >
-            <span>Mis Favoritos</span>
-            <AiOutlineArrowRight size={18} />
-          </Link>
-
-          <Link
-            to="/mis-compras"
-            className={styles.boxCategory}
-            onClick={() => setShowCanvas(false)}
-          >
-            <span>Mis Compras</span>
+            <span>Categorías</span>
             <AiOutlineArrowRight size={18} />
           </Link>
 
@@ -83,24 +74,6 @@ export const BarsOptions = ({ showCanvas, setShowCanvas }) => {
             onClick={() => setShowCanvas(false)}
           >
             <span>Buscar por ingredientes</span>
-            <AiOutlineArrowRight size={18} />
-          </Link>
-
-          <Link
-            to="/mis-favoritos"
-            className={styles.boxCategory}
-            onClick={() => setShowCanvas(false)}
-          >
-            <span>Mis Favoritos</span>
-            <AiOutlineArrowRight size={18} />
-          </Link>
-
-          <Link
-            to="/mis-favoritos"
-            className={styles.boxCategory}
-            onClick={() => setShowCanvas(false)}
-          >
-            <span>Mis Favoritos</span>
             <AiOutlineArrowRight size={18} />
           </Link>
         </Offcanvas.Body>
