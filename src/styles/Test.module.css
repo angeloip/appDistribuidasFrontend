@@ -1,4 +1,25 @@
-.tabContainer {
+.testContainer {
+  padding-top: var(--padding-top-container);
+  padding-left: var(--padding-left-container);
+  padding-right: var(--padding-right-container);
+  width: 100%;
+  max-width: var(--max-width-container);
+  margin: auto;
+}
+
+.testSubContainer {
+  background: #fff;
+  padding: 40px 20px;
+  display: flex;
+  align-items: center;
+  width: 100%;
+  border-radius: 10px;
+}
+.searchInputBox {
+  width: 100%;
+}
+/************************************ TABS /****
+/* .tabContainer {
   padding-top: var(--padding-top-container);
   padding-left: var(--padding-left-container);
   padding-right: var(--padding-right-container);
@@ -50,3 +71,4 @@
 .tabContainer .bloque.active {
   opacity: 1;
 }
+ */

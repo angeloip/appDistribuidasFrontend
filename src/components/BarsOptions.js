@@ -54,7 +54,7 @@ export const BarsOptions = ({ showCanvas, setShowCanvas }) => {
                 setShowCanvas(false);
               }}
             >
-              <GrClose size={20} />
+              <GrClose size={20} className={styles.iconClose} />
             </button>
           </div>
         </Offcanvas.Header>

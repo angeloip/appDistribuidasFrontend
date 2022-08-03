@@ -1,0 +1,45 @@
+.searchResultContainer {
+  padding: 10px;
+  display: grid;
+  gap: 15px;
+  margin-top: 10px;
+}
+
+.resultBox {
+}
+
+.linkDetails {
+  display: flex;
+  align-items: center;
+
+  gap: 15px;
+}
+
+.figure {
+  max-width: 70px;
+}
+
+.figure img {
+  width: 100%;
+  box-shadow: 2px 3px 8px -1px #86868699;
+  -webkit-box-shadow: 2px 3px 8px -1px #86868699;
+  -moz-box-shadow: 2px px 8px -1px #86868699;
+  object-fit: cover;
+}
+
+.moreInfo {
+  display: flex;
+
+  flex-direction: column;
+}
+
+.moreInfo span {
+  font-size: 14px;
+}
+.category {
+  font-weight: 500;
+  color: #737373;
+}
+.name {
+  color: #262626;
+}

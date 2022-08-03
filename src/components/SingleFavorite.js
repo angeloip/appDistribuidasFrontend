@@ -32,11 +32,10 @@ export const SingleFavorite = ({ favorite }) => {
         <span className={styles.name}>{favorite.dish.name}</span>
       </div>
       <div className={styles.listIngredients}>
-        <ul>
-          {favorite.dish.ingredients?.map((ingredient, index) => (
-            <li key={index}>{ingredient}</li>
-          ))}
-        </ul>
+        <span className={styles.titleIngredients}>Ingredientes:</span>
+        <span className={styles.textIngredients}>
+          {favorite.dish.ingredients.join(", ").slice(0, 80) + "..."}
+        </span>
       </div>
       <Link
         to={`/plato/detalles/${favorite.dish._id}`}

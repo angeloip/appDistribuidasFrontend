@@ -41,12 +41,17 @@
 }
 
 .listIngredients {
-  width: 150px;
+  width: 350px;
+  display: flex;
+  flex-direction: column;
 }
 
-.listIngredients ul {
-  padding: 0;
-  padding-left: 25px;
+.titleIngredients {
+  font-weight: 600;
+}
+.textIngredients {
+  font-size: 14px;
+  color: #737373;
 }
 
 .favoriteBtn,

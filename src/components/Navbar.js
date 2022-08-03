@@ -9,11 +9,13 @@ import { DropdownUser } from "./DropdownUser";
 import { Search } from "./Search";
 import { FaBars, FaRegUser, FaSearch } from "react-icons/fa";
 import { BarsOptions } from "./BarsOptions";
+import { SearchCanvas } from "./SearchCanvas";
 
 export const Navbar = () => {
   const [beUser] = useAuth().beUser;
   const [show, setShow] = useState(false);
   const [showCanvas, setShowCanvas] = useState(false);
+  const [showSearch, setShowSearch] = useState(false);
   return (
     <nav className={styles.navbarContainer}>
       <div className={styles.subNavbarContainer}>
@@ -24,8 +26,12 @@ export const Navbar = () => {
         </div>
 
         <div className={styles.searchProductBox}>
-          <Search />
+          <Search width={"320px"} setShow={setShowSearch} />
         </div>
+
+        {/* <div>
+          <Link to="/test">Test</Link>
+        </div> */}
 
         <div className={styles.opcionesNavbar}>
           <ul>
@@ -75,9 +81,13 @@ export const Navbar = () => {
           </div>
 
           <div className={`${styles.iconBox} ${styles.searchBox}`}>
-            <button className={styles.btnIcons}>
+            <button
+              className={styles.btnIcons}
+              onClick={() => setShowSearch(true)}
+            >
               <FaSearch />
             </button>
+            <SearchCanvas show={showSearch} setShow={setShowSearch} />
           </div>
           <div className={beUser ? "" : styles.iconBox}>
             {beUser ? (

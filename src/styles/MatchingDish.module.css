@@ -4,7 +4,7 @@
   align-items: center;
   justify-content: space-around;
   flex-wrap: wrap;
-  gap: 20px;
+  gap: 25px;
   padding: 15px 0;
 }
 
@@ -40,27 +40,26 @@
 }
 
 .listIngredients {
-  width: 150px;
-}
-
-.listIngredients ul {
-  padding: 0;
-  padding-left: 25px;
-  margin-bottom: 0;
-}
-
-.preparation {
-  display: flex;
-
-  flex-direction: column;
   width: 350px;
 }
 
-.preparation .titlePreparation {
+.preparation,
+.listIngredients {
+  display: flex;
+
+  flex-direction: column;
+}
+.preparation {
+  width: 350px;
+}
+
+.preparation .titlePreparation,
+.titleIngredients {
   font-weight: 600;
 }
 
-.preparation .textPreparation {
+.preparation .textPreparation,
+.textIngredients {
   font-size: 14px;
   color: #737373;
 }
@@ -74,7 +73,6 @@
   background: none;
   padding: 8px 10px;
   border-radius: 5px;
-  margin: auto;
   gap: 5px;
   transition: 0.3s;
   font-size: 14px;

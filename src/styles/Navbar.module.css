@@ -89,6 +89,7 @@
 .btnIcons {
   font-size: 24px;
   color: #f24726;
+  outline: none;
 }
 
 .searchBox {

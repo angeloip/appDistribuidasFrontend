@@ -10,8 +10,8 @@ export const useApi = () => {
 };
 
 export const ApiProvider = ({ children }) => {
-  /* const url = "http://localhost:5000/api/"; */
-  const url = "https://app-distribuida.herokuapp.com/api/";
+  const url = "http://localhost:5000/api/";
+  /* const url = "https://app-distribuida.herokuapp.com/api/"; */
   const urlFavorite = url + "favorites/";
 
   const getFavoritesRequest = () => axios.get(urlFavorite);
@@ -27,6 +27,9 @@ export const ApiProvider = ({ children }) => {
   const getDishesRequestPaginate = () => axios.get(urlDish);
   const getDishesForCategoryRequest = (category, page, limit) =>
     axios.post(urlDish + `category?page=${page}&limit=${limit}`, category);
+
+  const getSearchDishesRequest = (name) =>
+    axios.post(urlDish + `search?name=${name}`, null);
 
   const urlCategory = url + "categories/";
 
@@ -57,6 +60,7 @@ export const ApiProvider = ({ children }) => {
     getDishRequest: getDishRequest,
     getDishesRequestPaginate: getDishesRequestPaginate,
     getDishesForCategoryRequest: getDishesForCategoryRequest,
+    getSearchDishesRequest: getSearchDishesRequest,
     getCategoriesRequest: getCategoriesRequest,
     createLoginRequest: createLoginRequest,
     createLoginWithGoogleRequest: createLoginWithGoogleRequest,

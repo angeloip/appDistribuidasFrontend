@@ -1,3 +1,7 @@
+.searchCanvasContainer {
+  width: 100%;
+}
+
 .displayHeader {
   display: flex;
   align-items: center;
@@ -16,6 +20,7 @@
   border-radius: 5px;
   color: #fff;
   transition: 0.3s ease all;
+  outline: none;
 }
 .displayHeader .buttonGl {
   background: none;
@@ -26,20 +31,4 @@
 }
 .displayHeader .buttonGl:hover {
   background: rgb(231, 231, 231);
-}
-.boxCategory {
-  width: 100%;
-  padding: 12px 10px;
-  display: flex;
-  align-items: center;
-  justify-content: space-between;
-  border-bottom: 1px solid #e2e2e2;
-  cursor: pointer;
-  transition: 0.3s;
-  border-radius: 3px;
-}
-
-.boxCategory:hover {
-  background: #f2f2f2;
-  color: #000;
 }

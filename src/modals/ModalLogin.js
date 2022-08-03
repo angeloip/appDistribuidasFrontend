@@ -143,6 +143,7 @@ export const ModalLogin = ({ show, setShow }) => {
 
           setTimeout(() => {
             setHidden(true);
+            setError("");
           }, 300);
         }}
       >
@@ -158,6 +159,7 @@ export const ModalLogin = ({ show, setShow }) => {
 
                 setTimeout(() => {
                   setHidden(true);
+                  setError("");
                 }, 300);
               }}
               disabled={isLoading}
@@ -276,11 +278,11 @@ export const ModalLogin = ({ show, setShow }) => {
                     type="button"
                     className={`${styles.btnForm} ${styles.buttonForgotPass}`}
                     onClick={() => {
-                      setError("");
                       setShow(false);
                       setShowReset(true);
                       setTimeout(() => {
                         setHidden(true);
+                        setError("");
                       }, 300);
                     }}
                   >
@@ -308,7 +310,7 @@ export const ModalLogin = ({ show, setShow }) => {
                         onClick={() => {
                           setShow(false);
                           setShowRegister(true);
-
+                          setError("");
                           setHidden(true);
                         }}
                       >

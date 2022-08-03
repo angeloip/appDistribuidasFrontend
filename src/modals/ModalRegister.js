@@ -123,7 +123,13 @@ export const ModalRegister = ({ showRegister, setShowRegister, setShow }) => {
   return (
     <Modal
       show={showRegister}
-      /* onHide={() => setShow(false)} */
+      onHide={() => {
+        setShowRegister(false);
+        setTimeout(() => {
+          setHidden(true);
+          setError("");
+        }, 300);
+      }}
     >
       <Modal.Header>
         <div className={`container ${styles.displayHeader}`}>
@@ -134,6 +140,7 @@ export const ModalRegister = ({ showRegister, setShowRegister, setShow }) => {
               setShowRegister(false);
               setTimeout(() => {
                 setHidden(true);
+                setError("");
               }, 300);
             }}
             disabled={isLoading}

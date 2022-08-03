@@ -14,11 +14,10 @@ export const MatchingDish = ({ dish }) => {
           <span className={styles.name}>{dish.name}</span>
         </div>
         <div className={styles.listIngredients}>
-          <ul>
-            {dish.ingredients.map((ingredient, index) => (
-              <li key={index}>{ingredient}</li>
-            ))}
-          </ul>
+          <span className={styles.titleIngredients}>Ingredientes:</span>
+          <span className={styles.textIngredients}>
+            {dish.ingredients.join(", ").slice(0, 80) + "..."}
+          </span>
         </div>
         <div className={styles.preparation}>
           <span className={styles.titlePreparation}>Preparacion:</span>
