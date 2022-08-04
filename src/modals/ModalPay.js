@@ -16,7 +16,7 @@ import { useApi } from "../context/apiContext";
 import { useAuth } from "../context/authContext";
 import { useData } from "../context/dataContext";
 
-const stripePromise = loadStripe("pk_test_51LOPzIIXUY55H6B6UqZXvybDSESQT6U93ym3sbpIinLSqTnmFIqPHVKsBKioqACOjcETol1egbSNWimEM43K5KHF00EdRrXwkc);
+const stripePromise = loadStripe("pk_test_51LOPzIIXUY55H6B6UqZXvybDSESQT6U93ym3sbpIinLSqTnmFIqPHVKsBKioqACOjcETol1egbSNWimEM43K5KHF00EdRrXwkc");
 
 const Checkout = ({ isLoading, setIsLoading, dish, setShow }) => {
   const createPaymentRequest = useApi().createPaymentRequest;
