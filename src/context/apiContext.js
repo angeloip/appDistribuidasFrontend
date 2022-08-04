@@ -53,7 +53,7 @@ export const ApiProvider = ({ children }) => {
   const createPaymentRequest = (data) =>
     axios.post(urlPayment, data, {
       headers: {
-        Authorization: process.env.REACT_APP_STRIPE_API
+        Authorization: "pk_test_51LOPzIIXUY55H6B6UqZXvybDSESQT6U93ym3sbpIinLSqTnmFIqPHVKsBKioqACOjcETol1egbSNWimEM43K5KHF00EdRrXwkc"
       }
     });
 
