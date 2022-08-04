@@ -16,7 +16,7 @@ export const Home = () => {
       <Landing></Landing>
       <div id="platos" className={styles.homeContainer}>
         <h1 className="py-10 text-center text-4xl font-bold text-gray-700">
-          Lista de Platos
+          Lista de Platos ...
         </h1>
         {/* <div className={styles.listaProducts}>
           {isLoadingDishes
