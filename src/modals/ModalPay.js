@@ -16,9 +16,7 @@ import { useApi } from "../context/apiContext";
 import { useAuth } from "../context/authContext";
 import { useData } from "../context/dataContext";
 
-const stripePromise = loadStripe(
-  "pk_test_51LOPzIIXUY55H6B6UqZXvybDSESQT6U93ym3sbpIinLSqTnmFIqPHVKsBKioqACOjcETol1egbSNWimEM43K5KHF00EdRrXwkc"
-);
+const stripePromise = loadStripe(process.env.REACT_APP_STRIPE_API);
 
 const Checkout = ({ isLoading, setIsLoading, dish, setShow }) => {
   const createPaymentRequest = useApi().createPaymentRequest;
@@ -55,7 +53,7 @@ const Checkout = ({ isLoading, setIsLoading, dish, setShow }) => {
       const { id } = paymentMethod;
       const paymentDetails = {
         id_payment: id,
-        amount: 350,
+        amount: 100,
         date: datetime,
         user: beUser.id,
         dish: dish._id
@@ -145,7 +143,7 @@ export const ModalPay = ({ show, setShow, dish }) => {
           <div className="flex flex-col gap-1">
             <span>Nombre: {dish.name}</span>
             <span>Categoría: {dish.category}</span>
-            <span>Monto: $3.50</span>
+            <span>Monto: $1.00</span>
           </div>
 
           <Elements stripe={stripePromise}>
