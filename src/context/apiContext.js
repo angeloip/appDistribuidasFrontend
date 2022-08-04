@@ -50,16 +50,7 @@ export const ApiProvider = ({ children }) => {
 
   const getPaymentsRequest = () => axios.get(urlPayment);
 
-<<<<<<< HEAD
   const createPaymentRequest = (data) => axios.post(urlPayment, data);
-=======
-  const createPaymentRequest = (data) =>
-    axios.post(urlPayment, data, {
-      headers: {
-        Authorization: "pk_test_51LOPzIIXUY55H6B6UqZXvybDSESQT6U93ym3sbpIinLSqTnmFIqPHVKsBKioqACOjcETol1egbSNWimEM43K5KHF00EdRrXwkc"
-      }
-    });
->>>>>>> d7679f94fc5dc84cb60f23aed411612c74df2667
 
   const value = {
     getFavoritesRequest: getFavoritesRequest,
