@@ -16,7 +16,7 @@ import { useApi } from "../context/apiContext";
 import { useAuth } from "../context/authContext";
 import { useData } from "../context/dataContext";
 
-const stripePromise = loadStripe(process.env.REACT_APP_STRIPE_API);
+const stripePromise = loadStripe(process.env.REACT_APP_STRIPE_PK);
 
 const Checkout = ({ isLoading, setIsLoading, dish, setShow }) => {
   const createPaymentRequest = useApi().createPaymentRequest;

@@ -50,12 +50,7 @@ export const ApiProvider = ({ children }) => {
 
   const getPaymentsRequest = () => axios.get(urlPayment);
 
-  const createPaymentRequest = (data) =>
-    axios.post(urlPayment, data, {
-      headers: {
-        Authorization: process.env.REACT_APP_STRIPE_API
-      }
-    });
+  const createPaymentRequest = (data) => axios.post(urlPayment, data);
 
   const value = {
     getFavoritesRequest: getFavoritesRequest,
