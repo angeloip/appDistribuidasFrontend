@@ -14,6 +14,7 @@ export const ProductCard = ({ producto }) => {
   const [favorites] = useData().favorites;
   const addToFavorites = useData().addToFavorites;
   const deleteToFavorites = useData().deleteToFavorites;
+  const [isLoadingBtn, setIsLoadingBtn] = useData().isLoadingBtn;
 
   const [isCheck, setIsCheck] = useState(false);
 
@@ -32,6 +33,7 @@ export const ProductCard = ({ producto }) => {
   const agregarFavorito = async () => {
     if (beUser) {
       setIsLoading(true);
+      setIsLoadingBtn(true);
 
       const tempProduct = {
         dishId: producto._id,
@@ -40,6 +42,7 @@ export const ProductCard = ({ producto }) => {
 
       await addToFavorites(tempProduct);
       setIsLoading(false);
+      setIsLoadingBtn(false);
     } else {
       Toast.fire({
         icon: "info",
@@ -50,12 +53,14 @@ export const ProductCard = ({ producto }) => {
 
   const eliminarFavorito = async () => {
     setIsLoading(true);
+    setIsLoadingBtn(true);
     const deleteFav = favorites.find(
       (favorite) => favorite.dish._id === producto._id
     );
 
     await deleteToFavorites(deleteFav._id);
     setIsLoading(false);
+    setIsLoadingBtn(false);
   };
 
   const checkFavorite = () => {
@@ -98,7 +103,7 @@ export const ProductCard = ({ producto }) => {
             <button
               className={styles.favoriteBtn}
               type="button"
-              disabled={isLoading}
+              disabled={isLoading || isLoadingBtn}
               onClick={
                 isCheck ? () => eliminarFavorito() : () => agregarFavorito()
               }

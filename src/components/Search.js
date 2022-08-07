@@ -5,8 +5,6 @@ import styles from "../styles/Search.module.css";
 import { SearchResults } from "./SearchResults";
 
 export const Search = ({ width, setShow }) => {
-  const [isLoading, setIsLoading] = useState(false);
-
   const [queryText, setQueryText] = useState("");
   const [searchResults, setSearchResults] = useState([]);
 

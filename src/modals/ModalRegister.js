@@ -47,8 +47,6 @@ export const ModalRegister = ({ showRegister, setShowRegister, setShow }) => {
               .then((res) => {
                 setShowRegister(false);
                 setBeUser(res.data);
-                console.log("SE HA REGISTRADO CORRECTAMENTE");
-                console.log("SE HA LOGUEADO CORRECTAMENTE");
                 saveToken(res.data.token);
                 setHidden(true);
               })
@@ -93,7 +91,6 @@ export const ModalRegister = ({ showRegister, setShowRegister, setShow }) => {
             await createLoginWithGoogleRequest(userData)
               .then((res) => {
                 setBeUser(res.data);
-                console.log("SE HA LOGUEADO CORRECTAMENTE CON GOOGLE");
                 saveToken(res.data.token);
                 setShowRegister(false);
                 setHidden(true);

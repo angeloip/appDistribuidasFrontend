@@ -1,6 +1,7 @@
 import { SkeletonElement } from "./SkeletonElement";
 import stylesCard from "../styles/ProductCard.module.css";
 import stylesDetails from "../styles/ProductDetails.module.css";
+import stylesAccordion from "../styles/Accordion.module.css";
 import styles from "../styles/SkeletonMolds.module.css";
 
 export const ProductCardSkeleton = () => {
@@ -73,6 +74,27 @@ export const DetailsProductSkeleton = () => {
           </div>
         </div>
       </div>
+    </div>
+  );
+};
+
+export const AccordionSkeleton = () => {
+  return (
+    <div className={stylesAccordion.accordion}>
+      <div style={{ marginTop: "10px" }}>
+        <SkeletonElement type="text" height={25} width={"50%"} mb={2} />
+      </div>
+
+      <SkeletonElement type="text" height={25} width={"50%"} mb={2} />
+
+      <SkeletonElement type="text" height={20} width={"60%"} mb={1.5} />
+      <SkeletonElement type="text" height={20} width={"60%"} mb={1.5} />
+      <SkeletonElement type="text" height={20} width={"60%"} mb={1.5} />
+      <SkeletonElement type="text" height={20} width={"60%"} mb={1.5} />
+      <SkeletonElement type="text" height={20} width={"60%"} mb={1.5} />
+      <SkeletonElement type="text" height={20} width={"60%"} mb={1.5} />
+      <SkeletonElement type="text" height={20} width={"60%"} mb={1.5} />
+      <SkeletonElement type="text" height={20} width={"60%"} mb={1.5} />
     </div>
   );
 };

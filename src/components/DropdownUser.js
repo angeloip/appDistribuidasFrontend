@@ -1,5 +1,5 @@
 import nophoto from "../nophoto.jpeg";
-import { Link } from "react-router-dom";
+import { Link, Navigate } from "react-router-dom";
 import { BiLogOut } from "react-icons/bi";
 import { AiOutlineHeart, AiOutlineShoppingCart } from "react-icons/ai";
 import { useAuth } from "../context/authContext";
@@ -33,7 +33,6 @@ export const DropdownUser = () => {
     : styles.select_menu;
 
   const cerrarSesion = async () => {
-    /* setLoading(true); */
     await logOut()
       .then((res) => {
         setBeUser(null);
@@ -42,11 +41,11 @@ export const DropdownUser = () => {
           icon: "success",
           title: `Ha cerrado sesión`
         });
+        return <Navigate to="/" />;
       })
       .catch((error) => {
         console.log(error.response.data);
       });
-    /* setLoading(false); */
   };
 
   useEffect(() => {

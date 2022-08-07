@@ -10,8 +10,8 @@ export const useApi = () => {
 };
 
 export const ApiProvider = ({ children }) => {
-  /* const url = "http://localhost:5000/api/"; */
-  const url = process.env.REACT_APP_API;
+  const url = "http://localhost:5000/api/";
+  /*  const url = process.env.REACT_APP_API; */
   const urlFavorite = url + "favorites/";
 
   const getFavoritesRequest = () => axios.get(urlFavorite);

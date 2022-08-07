@@ -18,6 +18,7 @@ export const DataProvider = ({ children }) => {
   const [categories, setCategories] = useState([]);
   const [isLoadingDishes, setIsLoadingDishes] = useState(false);
   const [isLoadingCategories, setIsLoadingCategories] = useState(false);
+  const [isLoadingBtn, setIsLoadingBtn] = useState(false);
   const [listIngredients, setListIngredients] = useState([]);
   const getPaymentsRequest = useApi().getPaymentsRequest;
   const getFavoritesRequest = useApi().getFavoritesRequest;
@@ -117,6 +118,7 @@ export const DataProvider = ({ children }) => {
     categories: [categories, setCategories],
     listIngredients: [listIngredients, setListIngredients],
     isLoadingDishes: [isLoadingDishes, setIsLoadingDishes],
+    isLoadingBtn: [isLoadingBtn, setIsLoadingBtn],
     isLoadingCategories: [isLoadingCategories, setIsLoadingCategories],
     addToFavorites: addToFavorites,
     deleteToFavorites: deleteToFavorites

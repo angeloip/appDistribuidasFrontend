@@ -1,6 +1,9 @@
 import styles from "../styles/Categories.module.css";
 import { Accordion } from "../components/Accordion";
-import { ProductCardSkeleton } from "../components/SkeletonMolds";
+import {
+  AccordionSkeleton,
+  ProductCardSkeleton
+} from "../components/SkeletonMolds";
 import { useEffect, useState } from "react";
 import { ProductCard } from "../components/ProductCard";
 import { useApi } from "../context/apiContext";
@@ -10,14 +13,15 @@ export const Categories = () => {
   const [nameCategory, setNameCategory] = useState("Todo");
   const [isLoading, setIsLoading] = useState(false);
   const [isLoadingBtn, setIsLoadingBtn] = useState(false);
+  const [firstLoading, setFirstLoading] = useState(true);
   const getDishesForCategoryRequest = useApi().getDishesForCategoryRequest;
   const [data, setData] = useState([]);
   const [page, setPage] = useState(1);
   document.title = "Categorías";
 
-  const removeAccents = (str) => {
+  /* const removeAccents = (str) => {
     return str.normalize("NFD").replace(/[\u0300-\u036f]/g, "");
-  };
+  }; */
   const setCategory = async () => {
     setIsLoading(true);
     const category = {
@@ -27,6 +31,7 @@ export const Categories = () => {
       .then((res) => {
         setData(res.data.docs);
         setPage(1);
+        setFirstLoading(false);
       })
       .catch((error) => alert(error.response));
 
@@ -66,12 +71,18 @@ export const Categories = () => {
       <div className={styles.categoriesContainer}>
         <div className={styles.subCategoriesContainer}>
           <div className={styles.categoryFilters}>
-            <h2 className={styles.boxTittle}>Filtros</h2>
-            <Accordion
-              nameCategory={nameCategory}
-              setNameCategory={setNameCategory}
-              isLoading={isLoading}
-            />
+            {isLoading && firstLoading ? (
+              <AccordionSkeleton />
+            ) : (
+              <>
+                <h2 className={styles.boxTittle}>Filtros</h2>
+                <Accordion
+                  nameCategory={nameCategory}
+                  setNameCategory={setNameCategory}
+                  isLoading={isLoading}
+                />
+              </>
+            )}
           </div>
 
           <div className={styles.results}>
@@ -87,7 +98,7 @@ export const Categories = () => {
               <button
                 className={styles.loadBtn}
                 disabled={isLoadingBtn}
-                onClick={() => setPage(page + 1)}
+                onClick={() => setPage((prevPage) => prevPage + 1)}
               >
                 {isLoadingBtn ? (
                   <>
