@@ -1,5 +1,5 @@
 import { Link } from "react-router-dom";
-import noImg from "../img/no-image-dish.jpg";
+import noImg from "../img/no-image-dish.png";
 import styles from "../styles/SearchResults.module.css";
 
 export const SearchResults = ({

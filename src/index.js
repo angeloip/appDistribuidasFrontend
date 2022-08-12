@@ -1,5 +1,5 @@
 import React from "react";
-import ReactDOM from "react-dom/client";
+import ReactDOM from "react-dom";
 import "bootstrap/dist/css/bootstrap.min.css";
 import "./index.css";
 import App from "./App";
@@ -8,17 +8,17 @@ import { AuthProvider } from "./context/authContext";
 import { DataProvider } from "./context/dataContext";
 import { ApiProvider } from "./context/apiContext";
 
-const root = ReactDOM.createRoot(document.getElementById("root"));
-root.render(
+ReactDOM.render(
   <React.StrictMode>
     <BrowserRouter>
-      <ApiProvider>
-        <AuthProvider>
+      <AuthProvider>
+        <ApiProvider>
           <DataProvider>
             <App />
           </DataProvider>
-        </AuthProvider>
-      </ApiProvider>
+        </ApiProvider>
+      </AuthProvider>
     </BrowserRouter>
-  </React.StrictMode>
+  </React.StrictMode>,
+  document.getElementById("root")
 );

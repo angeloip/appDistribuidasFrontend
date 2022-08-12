@@ -1,8 +1,11 @@
+import { useState } from "react";
+import { useEffect } from "react";
 import Tab from "react-bootstrap/Tab";
 import Tabs from "react-bootstrap/Tabs";
 import styles from "../styles/TabDetails.module.css";
+import { RatingView } from "./RatingView";
 
-export const TabDetails = ({ dish }) => {
+export const TabDetails = ({ dish, rating, reviews }) => {
   return (
     <Tabs
       defaultActiveKey="general"
@@ -15,6 +18,11 @@ export const TabDetails = ({ dish }) => {
           <div className={styles.firstDetalles}>
             <span className={styles.categoria}>{dish.category}</span>
             <h4 className={styles.detalles_title}>{dish.name}</h4>
+            <div className={styles.rateBox}>
+              <span className={styles.rate}>{rating.toFixed(1)}</span>
+              <RatingView rating={rating} size={18} />
+              <span className={styles.rate}>{reviews.length} reseña(s)</span>
+            </div>
           </div>
           <div>
             <p className={styles.paraphBold}>Ingredientes:</p>

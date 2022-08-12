@@ -18,11 +18,20 @@
   flex-wrap: wrap;
   border-radius: 10px;
 }
+.additionalContent,
+.productReviews {
+  margin-top: 20px;
+  background: #fff;
+  padding: 40px 20px;
+  border-radius: 10px;
+}
 
 .detallesPhotoProduct {
   width: 450px;
   display: flex;
   justify-content: center;
+  flex-direction: column;
+  gap: 20px;
 }
 .photoDetalles {
   width: 100%;

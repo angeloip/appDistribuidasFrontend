@@ -1,0 +1,103 @@
+.ratingContainer {
+  display: flex;
+  flex-direction: column;
+  gap: 15px;
+}
+
+.urReviewContent {
+  display: flex;
+  flex-direction: column;
+  gap: 15px;
+}
+
+.urReviewTitle {
+  font-size: 20px;
+  font-weight: 500;
+}
+
+.urReviewCredentials {
+  display: flex;
+  flex-direction: column;
+  gap: 8px;
+}
+
+.userCredentials {
+  display: flex;
+  align-items: center;
+  gap: 20px;
+}
+
+.userCredentials img {
+  height: 50px;
+  width: 50px;
+  border-radius: 50%;
+}
+
+.userDate {
+  display: flex;
+  flex-direction: column;
+}
+.userDate .name {
+  font-weight: 500;
+}
+.userDate .date {
+  color: #737373;
+  font-size: 14px;
+}
+
+.comment {
+  color: #5f6368;
+}
+
+.titleReview {
+  font-size: 20px;
+  font-weight: 500;
+}
+
+.titleRatingBox {
+  margin-bottom: 7px;
+}
+
+.titleRating {
+  font-weight: 500;
+  color: #737373;
+}
+
+.inputRadioRating {
+  display: none;
+}
+
+.star {
+  cursor: pointer;
+  transition: color 0.2s ease;
+}
+
+.textAreaRating {
+  border: 2px solid #e4e5e9;
+  resize: none;
+  outline: none;
+  padding: 10px;
+  width: 100%;
+  color: #1f1f1f;
+  height: 120px !important;
+}
+
+.voteBtn {
+  display: flex;
+  align-items: center;
+  justify-content: center;
+  cursor: pointer;
+  outline: none;
+  background: none;
+  border: 1px solid #28a745;
+  padding: 8px 20px;
+  border-radius: 5px;
+  gap: 5px;
+  transition: 0.3s;
+  font-weight: bold;
+  color: #28a745;
+}
+
+.voteBtn:disabled {
+  background-color: #e8ffed;
+}

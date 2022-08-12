@@ -2,30 +2,29 @@ import styles from "../styles/SingleFavorite.module.css";
 import { AiFillHeart } from "react-icons/ai";
 import { HiOutlineInformationCircle } from "react-icons/hi";
 import { ImSpinner9 } from "react-icons/im";
-import noImg from "../img/no-image-dish.jpg";
+import noImg from "../img/no-image-dish.png";
 import { Link } from "react-router-dom";
 import { useData } from "../context/dataContext";
 import { useState } from "react";
 
 export const SingleFavorite = ({ favorite }) => {
-  const [favorites] = useData().favorites;
   const [isLoading, setIsLoading] = useState(false);
-  const deleteToFavorites = useData().deleteToFavorites;
+  const { deleteToFavorites } = useData();
 
   const eliminarFavorito = async () => {
     setIsLoading(true);
-    const deleteFav = favorites.find(
-      (fav) => fav.dish._id === favorite.dish._id
-    );
-
-    await deleteToFavorites(deleteFav._id);
+    await deleteToFavorites(favorite._id);
     setIsLoading(false);
   };
 
   return (
     <div className={styles.singleFavoriteContent}>
       <div className={styles.singleImg}>
-        <img src={favorite.dish.image.url || noImg} alt={favorite.dish.name} />
+        <img
+          src={favorite.dish.image.url || noImg}
+          alt={favorite.dish.name}
+          loading="lazy"
+        />
       </div>
       <div className={styles.singleName}>
         <span className={styles.category}>{favorite.dish.category}</span>

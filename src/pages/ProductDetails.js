@@ -6,15 +6,21 @@ import { ImSpinner9 } from "react-icons/im";
 import styles from "../styles/ProductDetails.module.css";
 import { useData } from "../context/dataContext";
 import { useAuth } from "../context/authContext";
-import noImg from "../img/no-image-dish.jpg";
+import noImg from "../img/no-image-dish.png";
 import { DetailsProductSkeleton } from "../components/SkeletonMolds";
 import { useApi } from "../context/apiContext";
 import { TabDetails } from "../components/TabDetails";
 import Swal from "sweetalert2";
 import { ModalPay } from "../modals/ModalPay";
+import { AdditionalDetails } from "../components/AdditionalDetails";
+import { Rating } from "../components/Rating";
+import { ProductReviews } from "../components/ProductReviews";
 
 export const ProductDetails = () => {
+  window.scrollTo({ top: 0, behavior: "smooth" });
   const [productoDetalles, setProductoDetalles] = useState([]);
+  const [reviews, setReviews] = useState([]);
+  const [rating, setRating] = useState(0);
   const [show, setShow] = useState(false);
   const [isLoading, setIsLoading] = useState(false);
   const [isBtnLoading, setIsBtnLoading] = useState(false);
@@ -88,6 +94,8 @@ export const ProductDetails = () => {
     await getDishRequest(params.id)
       .then((res) => {
         setProductoDetalles(res.data);
+        setReviews(res.data.reviews);
+        setRating(res.data.rating);
         document.title = res.data.name;
         setIsLoading(false);
       })
@@ -98,41 +106,13 @@ export const ProductDetails = () => {
       });
   };
 
-  const checkFavorite = () => {
-    if (favorites.length > 0) {
-      for (let i = 0; i < favorites.length; i++) {
-        if (favorites[i].dish._id === params.id) {
-          setIsCheck(true);
+  const checkFavorite = () =>
+    setIsCheck(favorites.some((fav) => fav.dish._id === params.id));
 
-          i = favorites.length;
-        } else {
-          setIsCheck(false);
-        }
-      }
-    } else {
-      setIsCheck(false);
-    }
-  };
-
-  const checkPayment = () => {
-    if (shopping.length > 0) {
-      for (let i = 0; i < shopping.length; i++) {
-        if (shopping[i].dish._id === params.id) {
-          setIsBuy(true);
-
-          i = shopping.length;
-        } else {
-          setIsBuy(false);
-        }
-      }
-    } else {
-      setIsBuy(false);
-    }
-  };
+  const checkPayment = () =>
+    setIsBuy(shopping.some((shop) => shop.dish._id === params.id));
 
   useEffect(() => {
-    window.scrollTo({ top: 0 /* , behavior: "smooth"  */ });
-
     getDish();
   }, [params.id]);
 
@@ -158,10 +138,21 @@ export const ProductDetails = () => {
                   className={styles.photoDetalles}
                   src={productoDetalles.image?.url || noImg}
                   alt={productoDetalles.name}
+                  loading="lazy"
+                />
+                <Rating
+                  dish={productoDetalles}
+                  setIsRating={setRating}
+                  setReviews={setReviews}
+                  reviews={reviews}
                 />
               </div>
               <div className={styles.detallesInfoproduct}>
-                <TabDetails dish={productoDetalles} />
+                <TabDetails
+                  dish={productoDetalles}
+                  rating={rating}
+                  reviews={reviews}
+                />
                 <button
                   className={styles.favoriteBtn}
                   type="button"
@@ -228,6 +219,16 @@ export const ProductDetails = () => {
                   )}
                 </button>
               </div>
+            </div>
+
+            {isBuy ? (
+              <div className={styles.additionalContent}>
+                <AdditionalDetails dish={productoDetalles} />
+              </div>
+            ) : null}
+
+            <div className={styles.productReviews}>
+              <ProductReviews reviews={reviews} />
             </div>
           </div>
           <ModalPay show={show} setShow={setShow} dish={productoDetalles} />

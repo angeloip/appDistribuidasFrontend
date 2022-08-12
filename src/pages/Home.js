@@ -5,7 +5,7 @@ import styles from "../styles/Home.module.css";
 export const Home = () => {
   /* const [dataDishes] = useData().dataDishes;
   const [isLoadingDishes] = useData().isLoadingDishes; */
-  document.title = "IziFood | Home";
+  document.title = "IziFood";
   window.scrollTo({ top: 0, behavior: "auto" });
   return (
     <motion.div

@@ -4,7 +4,7 @@ import { GrClose } from "react-icons/gr";
 import { useState } from "react";
 import { loadStripe } from "@stripe/stripe-js";
 import Swal from "sweetalert2";
-import noImg from "../img/no-image-dish.jpg";
+import noImg from "../img/no-image-dish.png";
 import {
   CardElement,
   Elements,

@@ -5,8 +5,9 @@ import { useEffect, useState } from "react";
 import { ImSpinner9 } from "react-icons/im";
 import { useAuth } from "../context/authContext";
 import { useData } from "../context/dataContext";
-import noImg from "../img/no-image-dish.jpg";
+import noImg from "../img/no-image-dish.png";
 import Swal from "sweetalert2";
+import { RatingView } from "./RatingView";
 
 export const ProductCard = ({ producto }) => {
   const [isLoading, setIsLoading] = useState(false);
@@ -15,7 +16,6 @@ export const ProductCard = ({ producto }) => {
   const addToFavorites = useData().addToFavorites;
   const deleteToFavorites = useData().deleteToFavorites;
   const [isLoadingBtn, setIsLoadingBtn] = useData().isLoadingBtn;
-
   const [isCheck, setIsCheck] = useState(false);
 
   const Toast = Swal.mixin({
@@ -64,18 +64,7 @@ export const ProductCard = ({ producto }) => {
   };
 
   const checkFavorite = () => {
-    if (favorites.length > 0) {
-      for (let i = 0; i < favorites.length; i++) {
-        if (favorites[i].dish._id === producto._id) {
-          setIsCheck(true);
-          i = favorites.length;
-        } else {
-          setIsCheck(false);
-        }
-      }
-    } else {
-      setIsCheck(false);
-    }
+    setIsCheck(favorites.some((fav) => fav.dish._id === producto._id));
   };
 
   useEffect(() => {
@@ -91,12 +80,17 @@ export const ProductCard = ({ producto }) => {
               className={styles.photoProduct}
               src={producto.image.url || noImg}
               alt={producto.name}
+              loading="lazy"
             />
           </div>
 
           <div>
             <div className={styles.nameBox}>
               <span className={styles.productName}>{producto.name}</span>
+            </div>
+
+            <div>
+              <RatingView rating={producto.rating} size={17} />
             </div>
 
             <p className={styles.productCategory}>{producto.category}</p>

@@ -1,13 +1,17 @@
 import styles from "../styles/SinglePayment.module.css";
 import { HiOutlineInformationCircle } from "react-icons/hi";
-import noImg from "../img/no-image-dish.jpg";
+import noImg from "../img/no-image-dish.png";
 import { Link } from "react-router-dom";
 
 export const SinglePayment = ({ shop }) => {
   return (
     <div className={styles.singlePaymentContent}>
       <div className={styles.singleImg}>
-        <img src={shop.dish.image.url || noImg} alt={shop.dish.name} />
+        <img
+          src={shop.dish.image.url || noImg}
+          alt={shop.dish.name}
+          loading="lazy"
+        />
       </div>
       <div className={styles.singleName}>
         <span className={styles.category}>{shop.dish.category}</span>
@@ -15,7 +19,7 @@ export const SinglePayment = ({ shop }) => {
       </div>
       <div className={styles.amount}>
         <span className={styles.title}>Monto</span>
-        <span className={styles.total}>$ {shop.amount}</span>
+        <span className={styles.total}>$ {shop.amount.toFixed(2)}</span>
       </div>
       <div className={styles.date}>
         <span className={styles.title}>Fecha</span>

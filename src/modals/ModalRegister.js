@@ -17,6 +17,7 @@ export const ModalRegister = ({ showRegister, setShowRegister, setShow }) => {
 
   const signUp = useAuth().signUp;
   const [beUser, setBeUser] = useAuth().beUser;
+  const setUserRole = useAuth().userRole[1];
   const loginWithGoogle = useAuth().loginWithGoogle;
   const saveToken = useAuth().saveToken;
 
@@ -45,9 +46,10 @@ export const ModalRegister = ({ showRegister, setShowRegister, setShow }) => {
 
             await createLoginRequest(userData)
               .then((res) => {
-                setShowRegister(false);
                 setBeUser(res.data);
                 saveToken(res.data.token);
+                setUserRole(res.data.role);
+                setShowRegister(false);
                 setHidden(true);
               })
               .catch((err) => {
@@ -92,6 +94,7 @@ export const ModalRegister = ({ showRegister, setShowRegister, setShow }) => {
               .then((res) => {
                 setBeUser(res.data);
                 saveToken(res.data.token);
+                setUserRole(res.data.role);
                 setShowRegister(false);
                 setHidden(true);
               })

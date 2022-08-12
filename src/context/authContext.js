@@ -22,10 +22,9 @@ export const useAuth = () => {
 
 export const AuthProvider = ({ children }) => {
   const [loadingUser, setLoadingUser] = useState(true);
-  /* const [usuario, setUsuario] = useState(null); */
   const [beUser, setBeUser] = useState(null);
   const [token, setToken] = useState(null);
-  const [userRole, setUserRole] = useState(0);
+  const [userRole, setUserRole] = useState(null);
 
   const saveToken = (newToken) => {
     setToken(`Bearer ${newToken}`);
@@ -35,7 +34,8 @@ export const AuthProvider = ({ children }) => {
     const loggedUserJSON = JSON.parse(localStorage.getItem("loggedUser"));
     if (loggedUserJSON) {
       setBeUser(loggedUserJSON);
-      /*  setToken("Bearer " + loggedUserJSON.token); */
+      setToken("Bearer " + loggedUserJSON.token);
+      setUserRole(loggedUserJSON.role);
     }
   }, []);
 

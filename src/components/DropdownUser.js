@@ -1,17 +1,17 @@
 import nophoto from "../nophoto.jpeg";
-import { Link, Navigate } from "react-router-dom";
+import { Link } from "react-router-dom";
 import { BiLogOut } from "react-icons/bi";
 import { AiOutlineHeart, AiOutlineShoppingCart } from "react-icons/ai";
 import { useAuth } from "../context/authContext";
 import styles from "../styles/DropdownUser.module.css";
 import { useEffect, useRef, useState } from "react";
-import { useData } from "../context/dataContext";
 import Swal from "sweetalert2";
 
 export const DropdownUser = () => {
   const [beUser, setBeUser] = useAuth().beUser;
   const logOut = useAuth().logOut;
-  const setFavorites = useData().favorites[1];
+  const setToken = useAuth().token[1];
+  const setUserRole = useAuth().userRole[1];
 
   const [activeDrop, setActiveDrop] = useState(false);
   const ref = useRef();
@@ -36,12 +36,12 @@ export const DropdownUser = () => {
     await logOut()
       .then((res) => {
         setBeUser(null);
-        setFavorites([]);
+        setToken(null);
+        setUserRole(null);
         Toast.fire({
           icon: "success",
           title: `Ha cerrado sesión`
         });
-        return <Navigate to="/" />;
       })
       .catch((error) => {
         console.log(error.response.data);

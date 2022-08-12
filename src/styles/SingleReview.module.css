@@ -1,0 +1,33 @@
+.urReviewCredentials {
+  display: flex;
+  flex-direction: column;
+  gap: 8px;
+}
+
+.userCredentials {
+  display: flex;
+  align-items: center;
+  gap: 20px;
+}
+
+.userCredentials img {
+  height: 50px;
+  width: 50px;
+  border-radius: 50%;
+}
+
+.userDate {
+  display: flex;
+  flex-direction: column;
+}
+.userDate .name {
+  font-weight: 500;
+}
+.userDate .date {
+  color: #737373;
+  font-size: 14px;
+}
+
+.comment {
+  color: #5f6368;
+}

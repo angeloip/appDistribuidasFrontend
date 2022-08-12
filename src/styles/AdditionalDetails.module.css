@@ -1,0 +1,47 @@
+.additionalDetailsContainer {
+  width: 100%;
+  max-width: 1000px;
+  display: flex;
+  align-items: center;
+  justify-content: center;
+  flex-direction: column;
+  margin: 0 auto;
+}
+
+.btns {
+  margin-bottom: 20px;
+}
+
+.btns button {
+  display: flex;
+  align-items: center;
+  justify-content: center;
+  cursor: pointer;
+  outline: none;
+  background: none;
+  border: 1px solid #dd4b39;
+  padding: 8px 10px;
+  border-radius: 5px;
+  gap: 5px;
+  transition: 0.3s;
+}
+
+.btns button:hover {
+  background-color: #ffefee;
+}
+
+.videoContainer {
+  padding-bottom: 56.25%;
+  height: 0;
+  overflow: hidden;
+  position: relative;
+  width: 100%;
+}
+
+.videoContainer iframe {
+  position: absolute;
+  height: 100%;
+  width: 100%;
+  top: 0;
+  left: 0;
+}

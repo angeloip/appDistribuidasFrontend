@@ -19,6 +19,7 @@ export const ModalLogin = ({ show, setShow }) => {
   const [showRegister, setShowRegister] = useState(false);
 
   const [beUser, setBeUser] = useAuth().beUser;
+  const setUserRole = useAuth().userRole[1];
   const logIn = useAuth().logIn;
   const loginWithGoogle = useAuth().loginWithGoogle;
   const saveToken = useAuth().saveToken;
@@ -53,7 +54,9 @@ export const ModalLogin = ({ show, setShow }) => {
           .then((res) => {
             setBeUser(res.data);
             saveToken(res.data.token);
+            setUserRole(res.data.role);
             setShow(false);
+
             setHidden(true);
             Toast.fire({
               icon: "success",
@@ -101,6 +104,7 @@ export const ModalLogin = ({ show, setShow }) => {
               .then((res) => {
                 setBeUser(res.data);
                 saveToken(res.data.token);
+                setUserRole(res.data.role);
                 setShow(false);
                 setHidden(true);
                 Toast.fire({

@@ -1,5 +1,6 @@
 import styles from "../styles/MatchingDish.module.css";
 import { Link } from "react-router-dom";
+import noImg from "../img/no-image-dish.png";
 import { HiOutlineInformationCircle } from "react-icons/hi";
 
 export const MatchingDish = ({ dish }) => {
@@ -7,7 +8,7 @@ export const MatchingDish = ({ dish }) => {
     <div className={styles.matchingDishContainer}>
       <div className={styles.subMatchingDishContainer}>
         <div className={styles.singleImg}>
-          <img src={dish.image.url} alt={dish.name} />
+          <img src={dish.image.url || noImg} alt={dish.name} />
         </div>
         <div className={styles.singleName}>
           <span className={styles.category}>{dish.category}</span>

@@ -1,5 +1,6 @@
 import { createContext, useContext } from "react";
 import axios from "axios";
+import { useAuth } from "./authContext";
 
 export const apiContext = createContext();
 
@@ -12,6 +13,15 @@ export const useApi = () => {
 export const ApiProvider = ({ children }) => {
   const url = "http://localhost:5000/api/";
   /*  const url = process.env.REACT_APP_API; */
+
+  const [token] = useAuth().token;
+
+  const config = {
+    headers: {
+      Authorization: token
+    }
+  };
+
   const urlFavorite = url + "favorites/";
 
   const getFavoritesRequest = () => axios.get(urlFavorite);
@@ -22,9 +32,15 @@ export const ApiProvider = ({ children }) => {
 
   const urlDish = url + "products/";
 
+  const createDishReviewRequest = (id, data) =>
+    axios.post(`${urlDish}${id}/reviews`, data, config);
+
   const getDishesRequest = () => axios.get(urlDish);
+
   const getDishRequest = (id) => axios.get(urlDish + id);
+
   const getDishesRequestPaginate = () => axios.get(urlDish);
+
   const getDishesForCategoryRequest = (category, page, limit) =>
     axios.post(urlDish + `category?page=${page}&limit=${limit}`, category);
 
@@ -56,6 +72,7 @@ export const ApiProvider = ({ children }) => {
     getFavoritesRequest: getFavoritesRequest,
     deleteFavoriteRequest: deleteFavoriteRequest,
     createFavoriteRequest: createFavoriteRequest,
+    createDishReviewRequest,
     getDishesRequest: getDishesRequest,
     getDishRequest: getDishRequest,
     getDishesRequestPaginate: getDishesRequestPaginate,

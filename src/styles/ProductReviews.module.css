@@ -1,0 +1,14 @@
+.reviewTitleBox {
+  margin-bottom: 30px;
+}
+
+.reviewTitle {
+  font-size: 22px;
+  font-weight: 500;
+}
+
+.reviewsContent {
+  display: flex;
+  flex-direction: column;
+  gap: 18px;
+}
