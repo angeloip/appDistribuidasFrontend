@@ -9,7 +9,7 @@ export const SingleReview = ({ review }) => {
         <div className={styles.userCredentials}>
           <img src={nophoto} alt="" />
           <div className={styles.userDate}>
-            <span className={styles.name}>{review.name}</span>
+            <span className={styles.name}>{review.user.name}</span>
             <span className={styles.date}>{review.date}</span>
           </div>
         </div>

@@ -43,6 +43,7 @@ export const Rating = ({ dish, setIsRating, setReviews, reviews }) => {
 
         await createDishReviewRequest(dish._id, data)
           .then((res) => {
+            console.log(res.data);
             setIsRating(res.data.rating);
             setReviews(res.data.reviews);
 
@@ -70,9 +71,7 @@ export const Rating = ({ dish, setIsRating, setReviews, reviews }) => {
 
   const checkReview = () => {
     if (beUser) {
-      setReview(
-        reviews.find((rev) => rev.user.toString() === beUser.id.toString())
-      );
+      setReview(reviews.find((rev) => rev.user._id === beUser.id));
     } else {
       setReview(null);
       setRating(null);
@@ -93,7 +92,7 @@ export const Rating = ({ dish, setIsRating, setReviews, reviews }) => {
             <div className={styles.userCredentials}>
               <img src={nophoto} alt="" />
               <div className={styles.userDate}>
-                <span className={styles.name}>{review.name}</span>
+                <span className={styles.name}>{review.user.name}</span>
                 <span className={styles.date}>{review.date}</span>
               </div>
             </div>
