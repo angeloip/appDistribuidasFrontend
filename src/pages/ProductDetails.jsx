@@ -88,40 +88,33 @@ export const ProductDetails = () => {
 
   const verEstado = async () => {};
 
-  const getDish = async () => {
-    setIsLoading(true);
-
-    await getDishRequest(params.id)
-      .then((res) => {
-        setProductoDetalles(res.data);
-        setReviews(res.data.reviews);
-        setRating(res.data.rating);
-        document.title = res.data.name;
-        setIsLoading(false);
-      })
-      .catch((err) => {
-        if (err.response.status === 500 || 404) {
-          navigate("*");
-        }
-      });
-  };
-
-  const checkFavorite = () =>
-    setIsCheck(favorites.some((fav) => fav.dish._id === params.id));
-
-  const checkPayment = () =>
-    setIsBuy(shopping.some((shop) => shop.dish._id === params.id));
-
   useEffect(() => {
+    const getDish = async () => {
+      setIsLoading(true);
+
+      await getDishRequest(params.id)
+        .then((res) => {
+          setProductoDetalles(res.data);
+          setReviews(res.data.reviews);
+          setRating(res.data.rating);
+          document.title = res.data.name;
+          setIsLoading(false);
+        })
+        .catch((err) => {
+          if (err.response.status === 500 || 404) {
+            navigate("*");
+          }
+        });
+    };
     getDish();
   }, [params.id]);
 
   useEffect(() => {
-    checkFavorite();
-  }, [favorites]);
+    setIsCheck(favorites.some((fav) => fav.dish._id === params.id));
+  }, [favorites, params.id]);
   useEffect(() => {
-    checkPayment();
-  }, [shopping]);
+    setIsBuy(shopping.some((shop) => shop.dish._id === params.id));
+  }, [shopping, params.id]);
 
   return (
     <>

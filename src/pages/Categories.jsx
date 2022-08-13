@@ -22,40 +22,41 @@ export const Categories = () => {
   /* const removeAccents = (str) => {
     return str.normalize("NFD").replace(/[\u0300-\u036f]/g, "");
   }; */
-  const setCategory = async () => {
-    setIsLoading(true);
-    const category = {
-      category: nameCategory
-    };
-    await getDishesForCategoryRequest(category)
-      .then((res) => {
-        setData(res.data.docs);
-        setPage(1);
-        setFirstLoading(false);
-      })
-      .catch((error) => alert(error.response));
-
-    setIsLoading(false);
-  };
-  const moreData = async () => {
-    setIsLoadingBtn(true);
-    const category = {
-      category: nameCategory
-    };
-    await getDishesForCategoryRequest(category, page)
-      .then((res) => setData((prevData) => prevData.concat(res.data.docs)))
-      .catch((error) => alert(error.response));
-
-    setIsLoadingBtn(false);
-  };
 
   useEffect(() => {
     if (page !== 1) {
+      const moreData = async () => {
+        setIsLoadingBtn(true);
+        const category = {
+          category: nameCategory
+        };
+        await getDishesForCategoryRequest(category, page)
+          .then((res) => setData((prevData) => prevData.concat(res.data.docs)))
+          .catch((error) => alert(error.response));
+
+        setIsLoadingBtn(false);
+      };
+
       moreData();
     }
   }, [page]);
 
   useEffect(() => {
+    const setCategory = async () => {
+      setIsLoading(true);
+      const category = {
+        category: nameCategory
+      };
+      await getDishesForCategoryRequest(category)
+        .then((res) => {
+          setData(res.data.docs);
+          setPage(1);
+          setFirstLoading(false);
+        })
+        .catch((error) => alert(error.response));
+
+      setIsLoading(false);
+    };
     setCategory();
   }, [nameCategory]);
 

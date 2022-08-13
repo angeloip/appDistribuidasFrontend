@@ -1,7 +1,5 @@
 import styles from "../styles/RatingView.module.css";
 import { FaRegStar, FaStar, FaStarHalfAlt } from "react-icons/fa";
-import { useEffect } from "react";
-import { useState } from "react";
 
 export const RatingView = ({ rating, size = 16 }) => {
   const color = "#ffc107";

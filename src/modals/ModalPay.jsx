@@ -141,9 +141,22 @@ export const ModalPay = ({ show, setShow, dish }) => {
           </div>
 
           <div className="flex flex-col gap-1">
-            <span>Nombre: {dish.name}</span>
-            <span>Categoría: {dish.category}</span>
-            <span>Monto: $1.00</span>
+            <span className="text-lg font-medium text-gray-400">DETALLES</span>
+            <span className="text-sm">Nombre: {dish.name}</span>
+            <span className="text-sm">Categoría: {dish.category}</span>
+            <span className="text-sm">Monto: $1.00</span>
+          </div>
+
+          <div className="flex flex-col gap-1">
+            <span className="text-lg font-medium text-gray-400">
+              BENEFICIOS
+            </span>
+            <span className="text-sm">
+              - Video paso a paso sobre la preparación del plato
+            </span>
+            <span className="text-sm">
+              - Descargable PDF sobre la receta del plato
+            </span>
           </div>
 
           <Elements stripe={stripePromise}>

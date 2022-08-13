@@ -11,6 +11,7 @@ import { Payments } from "./pages/Payments";
 import { Footer } from "./components/Footer";
 import { NotFound } from "./pages/NotFound";
 import { Categories } from "./pages/Categories";
+import { ProtectedRoute } from "./utils/ProtectedRoute";
 
 function App() {
   const [loadingUser] = useAuth().loadingUser;
@@ -24,8 +25,12 @@ function App() {
           <Routes>
             <Route path="/" element={<Home />} />
             <Route path="/plato/detalles/:id" element={<ProductDetails />} />
-            <Route path="/mis-favoritos" element={<Favorites />} />
-            <Route path="/mis-compras" element={<Payments />} />
+
+            <Route element={<ProtectedRoute />}>
+              <Route path="/mis-favoritos" element={<Favorites />} />
+              <Route path="/mis-compras" element={<Payments />} />
+            </Route>
+
             <Route
               path="/buscar-por-ingredientes"
               element={<SearchByIngredients />}

@@ -34,7 +34,6 @@ export const Rating = ({ dish, setIsRating, setReviews, reviews }) => {
     if (beUser) {
       if (rating && comment.trim().length !== 0) {
         setIsLoading(true);
-        console.log("El voto es de: ", rating);
 
         const data = {
           rating: rating,
@@ -43,7 +42,6 @@ export const Rating = ({ dish, setIsRating, setReviews, reviews }) => {
 
         await createDishReviewRequest(dish._id, data)
           .then((res) => {
-            console.log(res.data);
             setIsRating(res.data.rating);
             setReviews(res.data.reviews);
 
@@ -69,17 +67,16 @@ export const Rating = ({ dish, setIsRating, setReviews, reviews }) => {
     }
   };
 
-  const checkReview = () => {
-    if (beUser) {
-      setReview(reviews.find((rev) => rev.user._id === beUser.id));
-    } else {
-      setReview(null);
-      setRating(null);
-      setComment("");
-    }
-  };
-
   useEffect(() => {
+    const checkReview = () => {
+      if (beUser) {
+        setReview(reviews.find((rev) => rev.user._id === beUser.id));
+      } else {
+        setReview(null);
+        setRating(null);
+        setComment("");
+      }
+    };
     checkReview();
   }, [reviews, beUser]);
 

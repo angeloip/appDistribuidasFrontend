@@ -63,13 +63,12 @@ export const ProductCard = ({ producto }) => {
     setIsLoadingBtn(false);
   };
 
-  const checkFavorite = () => {
-    setIsCheck(favorites.some((fav) => fav.dish._id === producto._id));
-  };
-
   useEffect(() => {
+    const checkFavorite = () => {
+      setIsCheck(favorites.some((fav) => fav.dish._id === producto._id));
+    };
     checkFavorite();
-  }, [favorites]);
+  }, [favorites, producto._id]);
 
   return (
     <div className={styles.productoCardContainer}>

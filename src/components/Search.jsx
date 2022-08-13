@@ -12,16 +12,15 @@ export const Search = ({ width, setShow }) => {
 
   const handleChange = (e) => setQueryText(e.target.value);
 
-  const searchRequest = async () => {
-    await getSearchDishesRequest(queryText)
-      .then((res) => setSearchResults(res.data))
-      .catch((err) => console.log(err.response));
-  };
-
   useEffect(() => {
     if (!queryText) {
       setSearchResults([]);
     } else {
+      const searchRequest = async () => {
+        await getSearchDishesRequest(queryText)
+          .then((res) => setSearchResults(res.data))
+          .catch((err) => console.log(err.response));
+      };
       searchRequest();
     }
   }, [queryText]);

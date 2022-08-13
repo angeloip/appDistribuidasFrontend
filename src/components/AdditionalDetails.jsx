@@ -101,14 +101,6 @@ export const AdditionalDetails = ({ dish }) => {
         </button>
       </div>
       <div className={styles.videoContainer}>
-        {/* <iframe
-          width="560"
-          height="315"
-          src="https://www.youtube.com/embed/gDn4_8A92z4"
-          title="YouTube video player"
-          allow="accelerometer; autoplay; clipboard-write; encrypted-media; gyroscope; picture-in-picture"
-          allowFullScreen
-        ></iframe> */}
         <iframe
           src="https://drive.google.com/file/d/15j_2Una2IHs5bBFAijLll6ywrYR0yDyq/preview"
           width="560"

@@ -52,18 +52,18 @@ export const Footer = () => {
               >
                 <h2>SÍGUENOS</h2>
                 <div className={styles.links}>
-                  <a href="#">
+                  <span>
                     <FaFacebookSquare size={40} fill="#5761A6" />
-                  </a>
-                  <a href="#">
+                  </span>
+                  <span>
                     <FaInstagramSquare size={40} fill="#E1306C" />
-                  </a>
-                  <a href="#">
+                  </span>
+                  <span>
                     <FaTwitterSquare size={40} fill="#6494EB" />
-                  </a>
-                  <a href="#">
+                  </span>
+                  <span>
                     <FaYoutubeSquare size={40} fill="#D92424" />
-                  </a>
+                  </span>
                 </div>
               </div>
               <div
@@ -71,19 +71,19 @@ export const Footer = () => {
               >
                 <h2>MEDIOS DE PAGO</h2>
                 <div className={styles.links}>
-                  <span href="#">
+                  <span>
                     <FaCcVisa size={40} fill="#220073" />
                   </span>
-                  <span href="#">
+                  <span>
                     <FaCcMastercard size={40} fill="#C46429" />
                   </span>
-                  <span href="#">
+                  <span>
                     <FaCcAmex size={40} fill="#4C72C2" />
                   </span>
-                  <span href="#">
+                  <span>
                     <FaCcDiscover size={40} fill="#CE8135" />
                   </span>
-                  <span href="#">
+                  <span>
                     <FaCcDinersClub size={40} fill="#4B72BA" />
                   </span>
                 </div>
