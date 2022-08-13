@@ -1,4 +1,5 @@
 import { motion } from "framer-motion";
+import { Link } from "react-router-dom";
 
 const Landing = () => {
   const bgBanner =
@@ -25,11 +26,17 @@ const Landing = () => {
             <p className="text-2xl text-blue-100 font-bold">
               Explore nuestra tienda de recetas y elija el suyo
             </p>
-            <button className="px-8 py-3 mt-10 bg-red-500 hover:bg-red-400 rounded hover:bg-red-500 text-white hover:text-white transition duration-300 ">
-              <a className="hover:text-white" href="#platos">
-                VER PLATOS
-              </a>
-            </button>
+
+            <Link 
+            to="/categorias"
+            >
+              <button className="px-8 py-3 mt-10 bg-red-500 hover:bg-red-400 rounded hover:bg-red-500 text-white hover:text-white transition duration-300">
+                <a className="hover:text-white" href="#platos">
+                  VER PLATOS
+                </a>
+              </button>
+            </Link>
+
           </div>
           <motion.div
             initial={{ y: "-100vw" }}
