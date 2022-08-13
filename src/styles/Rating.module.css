@@ -98,6 +98,10 @@
   color: #28a745;
 }
 
+.voteBtn:hover {
+  background-color: #e8ffed;
+}
+
 .voteBtn:disabled {
   background-color: #e8ffed;
 }

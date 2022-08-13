@@ -19,15 +19,17 @@
   cursor: pointer;
   outline: none;
   background: none;
-  border: 1px solid #dd4b39;
+  border: 1px solid #28a745;
   padding: 8px 10px;
   border-radius: 5px;
   gap: 5px;
   transition: 0.3s;
+  color: #28a745;
+  font-weight: bold;
 }
 
 .btns button:hover {
-  background-color: #ffefee;
+  background-color: #e8ffed;
 }
 
 .videoContainer {

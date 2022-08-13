@@ -9,7 +9,7 @@ import { useState } from "react";
 
 export const SingleFavorite = ({ favorite }) => {
   const [isLoading, setIsLoading] = useState(false);
-  const { deleteToFavorites } = useData();
+  const deleteToFavorites = useData().deleteToFavorites;
 
   const eliminarFavorito = async () => {
     setIsLoading(true);

@@ -36,26 +36,26 @@ export const DetailsProductSkeleton = () => {
         >
           <SkeletonElement type="rectangular" height={"100%"} />
         </div>
-        <div
-          className={stylesDetails.detallesInfoprodct}
-          style={{ width: 382 }}
-        >
-          <div style={{ display: "flex", gap: "15px" }}>
+        <div className={`${stylesDetails.detallesInfoproduct}`}>
+          <div
+            style={{
+              display: "flex",
+              gap: "15px",
+              flexWrap: "wrap",
+              alignItems: "center",
+              justifyContent: "center"
+            }}
+          >
             <SkeletonElement type="rectangular" height={30} width={120} />
             <SkeletonElement type="rectangular" height={30} width={120} />
-            <SkeletonElement
-              type="rectangular"
-              height={30}
-              width={120}
-              mb={3}
-            />
+            <SkeletonElement type="rectangular" height={30} width={120} />
           </div>
-          <div>
+          <div style={{ width: "100%" }}>
             <SkeletonElement type="text" width={"30%"} />
             <SkeletonElement type="text" height={20} width={"50%"} mb={2} />
           </div>
 
-          <div>
+          <div style={{ width: "100%" }}>
             <SkeletonElement type="text" width={"30%"} />
             <SkeletonElement type="text" height={20} width={"60%"} />
             <SkeletonElement type="text" height={20} width={"60%"} />
@@ -66,10 +66,14 @@ export const DetailsProductSkeleton = () => {
             <SkeletonElement type="text" height={20} width={"60%"} mb={2} />
           </div>
 
-          <div style={{ display: "flex", justifyContent: "center" }}>
+          <div
+            style={{ display: "flex", justifyContent: "center", width: "100%" }}
+          >
             <SkeletonElement type="rectangular" height={40} width={"80%"} />
           </div>
-          <div style={{ display: "flex", justifyContent: "center" }}>
+          <div
+            style={{ display: "flex", justifyContent: "center", width: "100%" }}
+          >
             <SkeletonElement type="rectangular" height={40} width={"80%"} />
           </div>
         </div>

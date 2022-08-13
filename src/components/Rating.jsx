@@ -56,7 +56,7 @@ export const Rating = ({ dish, setIsRating, setReviews, reviews }) => {
       } else {
         Toast.fire({
           icon: "info",
-          title: "Debe poner una voloración y una opinión"
+          title: "Debe poner una valoración y una opinión"
         });
       }
     } else {

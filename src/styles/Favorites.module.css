@@ -51,6 +51,10 @@
 .clean__title {
   font-weight: bold;
   font-size: 20px;
+  text-align: center;
+}
+.clean__paragraph {
+  text-align: center;
 }
 
 .btnToDish {

@@ -11,7 +11,7 @@
   background: #fff;
   padding: 40px 20px;
   display: flex;
-  align-items: center;
+  align-items: flex-start;
   width: 100%;
   justify-content: space-evenly;
   gap: 30px;
