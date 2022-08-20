@@ -23,8 +23,7 @@ export const MatchingDish = ({ dish }) => {
         <div className={styles.preparation}>
           <span className={styles.titlePreparation}>Preparacion:</span>
           <span className={styles.textPreparation}>
-            Lorem ipsum dolor sit amet, consectetur adipisicing elit.
-            Consequuntur, dolores.
+            {dish.preparation.slice(0, 80) + "..."}
           </span>
         </div>
         <Link to={`/plato/detalles/${dish._id}`} className={styles.btnView}>
